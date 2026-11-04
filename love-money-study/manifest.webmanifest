@@ -1,0 +1,14 @@
+{
+  "name": "书虫 · 爱情与金钱 — 精读与听力",
+  "short_name": "爱情与金钱",
+  "description": "中英对照精读、原声听力、点词查义与生词本。",
+  "start_url": "./index.html#/",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f3ea",
+  "theme_color": "#2c5a49",
+  "lang": "zh-CN",
+  "icons": [
+    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

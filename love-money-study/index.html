@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="paper" data-mode="both">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>书虫 · 爱情与金钱 — 精读与听力</title>
+<meta name="description" content="《爱情与金钱》双语精读与听力练习站：逐段对照、点词查义、生词本与进度续读。">
+<meta name="theme-color" content="#F7F3EA">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+  // 尽早应用主题，避免闪烁
+  try {
+    var s = JSON.parse(localStorage.getItem('bw.settings') || '{}');
+    if (s.theme) document.documentElement.dataset.theme = s.theme;
+    if (s.mode) document.documentElement.dataset.mode = s.mode;
+    if (s.size) document.documentElement.style.setProperty('--read-size', s.size + 'px');
+    if (s.lh)   document.documentElement.style.setProperty('--read-lh', s.lh);
+  } catch (e) {}
+</script>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ───────────────────────── 顶栏 ───────────────────────── -->
+<header class="topbar">
+  <a class="brand" href="#/" aria-label="返回课程首页">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v16.5H6.5A2.5 2.5 0 0 0 4 22V5.5Z"/>
+        <path d="M4 17.5A2.5 2.5 0 0 1 6.5 15H19"/>
+        <path d="M9 7.5h6"/>
+      </svg>
+    </span>
+    <span class="brand-text">
+      <strong>书虫</strong>
+      <em>精读 · 听力</em>
+    </span>
+  </a>
+
+  <nav class="nav" aria-label="主导航">
+    <a href="#/" data-nav="home">课程</a>
+    <a href="#/vocab" data-nav="vocab">生词本 <span class="bubble" id="navVocabCount" hidden>0</span></a>
+  </nav>
+
+  <div class="top-actions">
+    <button class="icon-btn" id="themeBtn" type="button" title="切换主题" aria-label="切换主题">
+      <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/>
+      </svg>
+      <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"/>
+      </svg>
+    </button>
+    <button class="icon-btn" id="settingsBtn" type="button" title="阅读设置" aria-label="阅读设置">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1.11-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.6 8.9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6h.09A1.7 1.7 0 0 0 10.1 3.05V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9v.09a1.7 1.7 0 0 0 1.55 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.51 1Z"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main id="app">
+
+  <!-- ───────────────────────── 首页 ───────────────────────── -->
+  <section class="view" id="view-home">
+    <div class="hero">
+      <div class="hero-copy">
+        <p class="kicker">OXFORD BOOKWORMS LIBRARY · LEVEL 1</p>
+        <h1 class="display">Love or Money?</h1>
+        <p class="display-zh">爱情与金钱</p>
+        <p class="lede">导入音频后逐章精听，中英对照逐段精读。点按任意单词即刻释义、收入生词本，进度自动续读。</p>
+        <div class="chips">
+          <span class="chip"><i class="dot"></i>8 个章节</span>
+          <span class="chip">中英对照</span>
+          <span class="chip">原声 MP3 · 需导入</span>
+        </div>
+        <div class="hero-actions">
+          <button class="btn btn-primary" id="continueBtn" type="button">
+            <span id="continueLabel">开始学习</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+          </button>
+          <a class="btn btn-ghost" href="#/vocab">生词本</a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="book">
+          <div class="book-face">
+            <div class="book-top">
+              <span class="book-series">Oxford Bookworms Library</span>
+              <span class="book-level">Level 1</span>
+            </div>
+            <div class="book-mid">
+              <span class="book-title">Love<br>or Money?</span>
+              <span class="book-rule"></span>
+              <span class="book-author">Rowena Akinyemi</span>
+            </div>
+            <div class="book-bottom">
+              <span>中英双语 · 有声读物</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M8 6c0 3 8 3 8 6s-8 3-8 6"/></svg>
+            </div>
+          </div>
+          <div class="book-spine"></div>
+        </div>
+        <div class="art-caption">书虫 · 1 级</div>
+      </div>
+    </div>
+
+    <div class="stats" id="stats">
+      <div class="stat">
+        <span class="stat-num" id="statDone">0</span>
+        <span class="stat-label">已读章节</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="statPct">0<span class="stat-unit">%</span></span>
+        <span class="stat-label">全书进度</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="statWords">0</span>
+        <span class="stat-label">生词收藏</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="statTime">0<span class="stat-unit">分</span></span>
+        <span class="stat-label">累计学习</span>
+      </div>
+    </div>
+
+    <div class="toc">
+      <div class="toc-head">
+        <h2>目录<span class="zh">Contents</span></h2>
+        <p class="toc-hint">点击任意章节开始</p>
+      </div>
+      <ol class="toc-list" id="tocList"></ol>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── 阅读页 ───────────────────────── -->
+  <section class="view" id="view-read">
+    <div class="reader" id="reader">
+      <aside class="rail rail-left" id="railLeft">
+        <p class="rail-title">目录</p>
+        <nav class="rail-nav" id="railNav" aria-label="章节导航"></nav>
+      </aside>
+
+      <article class="article">
+        <div class="article-bar">
+          <a class="backlink" href="#/">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6M11 6l-6 6 6 6"/></svg>
+            目录
+          </a>
+          <div class="article-tools">
+            <button class="tool-btn" id="ttsBtn" type="button" title="朗读本章">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.5L13 19V5L7.5 9.5H4Z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19 6a8.5 8.5 0 0 1 0 12"/></svg>
+              朗读
+            </button>
+            <button class="tool-btn only-mobile" id="mobileTocBtn" type="button">目录</button>
+          </div>
+        </div>
+
+        <header class="art-head">
+          <p class="kicker" id="artKicker">CHAPTER 01</p>
+          <h1 id="artTitle">Chapter 1</h1>
+          <p class="art-meta" id="artMeta"></p>
+        </header>
+
+        <div class="pairs" id="pairs"></div>
+
+        <footer class="art-foot">
+          <button class="btn btn-primary" id="nextChapterBtn" type="button">下一章</button>
+          <button class="btn btn-ghost" id="markDoneBtn" type="button">标记为已读</button>
+        </footer>
+      </article>
+
+      <aside class="rail rail-right">
+        <section class="rail-block">
+          <p class="rail-title">显示</p>
+          <div class="seg" id="modeSeg" role="group" aria-label="显示语言">
+            <button data-mode="both" type="button">双语</button>
+            <button data-mode="en" type="button">英文</button>
+            <button data-mode="zh" type="button">中文</button>
+          </div>
+        </section>
+        <section class="rail-block">
+          <p class="rail-title">字号 <span class="rail-val" id="sizeVal">19</span></p>
+          <input type="range" min="16" max="26" step="1" id="sizeRange" class="range" aria-label="字号">
+        </section>
+        <section class="rail-block">
+          <p class="rail-title">行距</p>
+          <div class="seg" id="lhSeg" role="group" aria-label="行距">
+            <button data-lh="1.7" type="button">紧</button>
+            <button data-lh="1.85" type="button">中</button>
+            <button data-lh="2.05" type="button">松</button>
+          </div>
+        </section>
+        <section class="rail-block">
+          <p class="rail-title">本章生词 <span class="rail-val" id="chapterWordsCount">0</span></p>
+          <div class="mini-vocab" id="miniVocab"></div>
+        </section>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── 生词本 ───────────────────────── -->
+  <section class="view" id="view-vocab">
+    <div class="vocab-page">
+      <header class="page-head">
+        <p class="kicker">VOCABULARY</p>
+        <h1>生词本<span class="zh">Words I've kept</span></h1>
+        <p class="page-sub">阅读时点按英文单词即可查义并收藏。这里的词会一直留在本机浏览器中。</p>
+      </header>
+
+      <div class="vocab-toolbar">
+        <label class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+          <input type="search" id="vocabSearch" placeholder="搜索单词或释义…" autocomplete="off">
+        </label>
+        <div class="toolbar-actions">
+          <button class="btn btn-ghost btn-sm" id="reviewBtn" type="button">复习</button>
+          <button class="btn btn-ghost btn-sm" id="exportBtn" type="button">导出</button>
+          <button class="icon-btn danger" id="clearVocabBtn" type="button" title="清空生词本" aria-label="清空生词本">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9.5 7V4.8h5V7M6.5 7l.9 12.2a1.8 1.8 0 0 0 1.8 1.6h5.6a1.8 1.8 0 0 0 1.8-1.6L17.5 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="vocab-grid" id="vocabGrid"></div>
+      <div class="empty" id="vocabEmpty" hidden>
+        <div class="empty-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v16.5H6.5A2.5 2.5 0 0 0 4 22V5.5Z"/><path d="M4 17.5A2.5 2.5 0 0 1 6.5 15H19"/></svg>
+        </div>
+        <p>还没有生词。<br>去阅读页点按任意一个英文单词试试。</p>
+        <a class="btn btn-primary" href="#/read/89691761">开始阅读</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="view-notfound">
+    <div class="empty">
+      <p>没有找到这个页面。</p>
+      <a class="btn btn-ghost" href="#/">回到课程</a>
+    </div>
+  </section>
+</main>
+
+<!-- ───────────────────────── 播放器 ───────────────────────── -->
+<div class="player" id="player" hidden>
+  <div class="pl-info">
+    <span class="pl-badge" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg>
+    </span>
+    <span class="pl-text">
+      <span class="pl-title" id="plTitle">Chapter 1</span>
+      <span class="pl-sub" id="plSub">未导入音频</span>
+    </span>
+  </div>
+
+  <div class="pl-main">
+    <div class="pl-controls">
+      <button class="pl-btn" id="plPrev" type="button" title="上一章" aria-label="上一章">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h2v14H7zM19 5v14L10 12z"/></svg>
+      </button>
+      <button class="pl-btn" id="plBack" type="button" title="后退 10 秒" aria-label="后退 10 秒">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10a8 8 0 1 1 2 7"/><path d="M4 4v6h6"/><text x="12" y="16" font-size="7" fill="currentColor" stroke="none" text-anchor="middle">10</text></svg>
+      </button>
+      <button class="pl-play" id="plPlay" type="button" title="播放 / 暂停" aria-label="播放">
+        <svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a.8.8 0 0 0 1.22.68l10.2-6.5a.8.8 0 0 0 0-1.36L9.22 4.82A.8.8 0 0 0 8 5.5Z"/></svg>
+        <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="5" width="3.6" height="14" rx="1"/><rect x="13.4" y="5" width="3.6" height="14" rx="1"/></svg>
+      </button>
+      <button class="pl-btn" id="plFwd" type="button" title="前进 10 秒" aria-label="前进 10 秒">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10a8 8 0 1 0-2 7"/><path d="M20 4v6h-6"/><text x="12" y="16" font-size="7" fill="currentColor" stroke="none" text-anchor="middle">10</text></svg>
+      </button>
+      <button class="pl-btn" id="plNext" type="button" title="下一章" aria-label="下一章">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 5h-2v14h2zM5 5v14l9-7z"/></svg>
+      </button>
+    </div>
+
+    <div class="pl-track">
+      <span class="pl-time" id="plCur">0:00</span>
+      <div class="track" id="track" role="slider" tabindex="0" aria-label="播放进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="track-buffer" id="trackBuffer"></div>
+        <div class="track-fill" id="trackFill"></div>
+        <div class="track-knob" id="trackKnob"></div>
+      </div>
+      <span class="pl-time" id="plDur">0:00</span>
+      <div class="pl-status" id="plStatus" hidden>
+        <span id="plStatusText">本章还没有音频</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="pl-right">
+    <button class="pl-chip" id="speedBtn" type="button" title="播放速度">1.0×</button>
+    <button class="pl-chip" id="loopBtn" type="button" title="A-B 复读">A-B</button>
+    <button class="pl-chip" id="sleepBtn" type="button" title="定时关闭">⏱</button>
+  </div>
+</div>
+
+<!-- ───────────────────────── 设置抽屉 ───────────────────────── -->
+<div class="scrim" id="scrim" hidden></div>
+<aside class="sheet" id="sheet" aria-hidden="true" aria-label="阅读设置">
+  <div class="sheet-head">
+    <h2>阅读设置</h2>
+    <button class="icon-btn" id="sheetClose" type="button" aria-label="关闭">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+
+  <div class="sheet-body">
+    <section class="field">
+      <p class="field-label">主题</p>
+      <div class="theme-grid">
+        <button class="theme-swatch" data-theme-opt="paper" type="button"><span class="sw sw-paper"></span>纸白</button>
+        <button class="theme-swatch" data-theme-opt="sepia" type="button"><span class="sw sw-sepia"></span>米黄</button>
+        <button class="theme-swatch" data-theme-opt="dark" type="button"><span class="sw sw-dark"></span>暗夜</button>
+      </div>
+    </section>
+
+    <section class="field">
+      <p class="field-label">显示语言</p>
+      <div class="seg seg-wide" id="modeSegSheet" role="group" aria-label="显示语言">
+        <button data-mode="both" type="button">中英对照</button>
+        <button data-mode="en" type="button">仅英文</button>
+        <button data-mode="zh" type="button">仅中文</button>
+      </div>
+    </section>
+
+    <section class="field">
+      <label class="field-label" for="sizeRange2">字号 <span class="field-val" id="sizeVal2">19 px</span></label>
+      <input type="range" min="16" max="26" step="1" id="sizeRange2" class="range">
+    </section>
+
+    <section class="field">
+      <label class="field-label" for="speedRange">朗读语速 <span class="field-val" id="speedVal">0.9×</span></label>
+      <input type="range" min="60" max="130" step="5" id="speedRange" class="range">
+    </section>
+
+    <section class="field">
+      <p class="field-label">查词</p>
+      <label class="switch-row">
+        <span>点选单词时自动朗读</span>
+        <input type="checkbox" id="autoSpeak" class="switch">
+      </label>
+    </section>
+
+    <section class="field">
+      <p class="field-label">连续播放</p>
+      <label class="switch-row">
+        <span>本章结束后自动进入下一章</span>
+        <input type="checkbox" id="autoNext" class="switch">
+      </label>
+    </section>
+
+    <section class="field">
+      <p class="field-label">音频</p>
+      <p class="field-note">只读取本机 <code>audio/</code> 目录里的原声文件（<code>ch1.mp3</code> … <code>ch7.mp3</code>），不需要上传。缺失的章节可以用系统语音朗读。</p>
+      <ul class="audio-list" id="audioList"></ul>
+      <div class="row-actions">
+        <button class="btn btn-ghost btn-sm" id="audioRescanBtn" type="button">重新检测本地音频</button>
+      </div>
+    </section>
+
+    <section class="field">
+      <p class="field-label">数据</p>
+      <div class="row-actions">
+        <button class="btn btn-ghost btn-sm" id="resetProgressBtn" type="button">重置阅读进度</button>
+        <button class="btn btn-ghost btn-sm" id="clearAllBtn" type="button">清除全部本地数据</button>
+      </div>
+    </section>
+
+    <p class="colophon">内容版权归原作者与出版方所有，本页仅供个人离线学习使用，请勿传播。<br>
+      来源：<a href="https://zhuanti.chaoxing.com/mobile/mooc/tocourse/89691708" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;text-underline-offset:2px">超星专题页 · 萤火虫</a></p>
+  </div>
+</aside>
+
+<!-- ───────────────────────── 移动端目录 ───────────────────────── -->
+<div class="scrim" id="tocScrim" hidden></div>
+<aside class="sheet toc-sheet" id="tocSheet" aria-hidden="true" aria-label="章节目录">
+  <div class="sheet-head">
+    <h2>目录</h2>
+    <button class="icon-btn" id="tocClose" type="button" aria-label="关闭">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="sheet-body">
+    <nav class="rail-nav" id="tocSheetNav" aria-label="章节列表"></nav>
+  </div>
+</aside>
+
+<!-- ───────────────────────── 单词卡 ───────────────────────── -->
+<div class="wordpop" id="wordPop" hidden role="dialog" aria-label="查词">
+  <div class="wordpop-head">
+    <div class="wp-title">
+      <p class="wp-word" id="wpWord">word</p>
+      <p class="wp-phon" id="wpPhon"></p>
+    </div>
+    <div class="wp-head-actions">
+      <button class="icon-btn" id="wpSpeakTop" type="button" aria-label="朗读单词" title="朗读单词">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.5L13 19V5L7.5 9.5H4Z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/></svg>
+      </button>
+      <button class="icon-btn" id="wpClose" type="button" aria-label="关闭">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+  </div>
+  <p class="wp-pos" id="wpPos"></p>
+  <p class="wp-def" id="wpDef">正在查询…</p>
+  <p class="wp-ctx" id="wpCtx"></p>
+  <div class="wp-actions">
+    <button class="btn btn-primary btn-sm" id="wpSave" type="button">收入生词本</button>
+    <button class="btn btn-ghost btn-sm" id="wpSpeak" type="button">读音</button>
+  </div>
+</div>
+
+<!-- ───────────────────────── 复习 ───────────────────────── -->
+<div class="review" id="review" hidden>
+  <div class="review-head">
+    <span id="reviewCount">1 / 1</span>
+    <button class="icon-btn" id="reviewClose" type="button" aria-label="关闭复习">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="flash" id="flash" tabindex="0">
+    <div class="flash-inner" id="flashInner">
+      <div class="flash-face flash-front">
+        <p class="flash-word" id="flashWord"></p>
+        <p class="flash-hint">点卡片翻面</p>
+      </div>
+      <div class="flash-face flash-back">
+        <p class="flash-word small" id="flashWordBack"></p>
+        <p class="flash-phon" id="flashPhon"></p>
+        <p class="flash-def" id="flashDef"></p>
+        <p class="flash-src" id="flashSrc"></p>
+      </div>
+    </div>
+  </div>
+  <div class="review-actions">
+    <button class="btn btn-ghost" id="reviewUnknown" type="button">还不熟</button>
+    <button class="btn btn-primary" id="reviewKnown" type="button">记住了</button>
+  </div>
+  <p class="review-done" id="reviewDone" hidden>这一轮复习结束，做得好。</p>
+</div>
+
+<!-- 生词释义编辑（离线/查词失败时） -->
+<dialog class="mini-dialog" id="meaningDialog">
+  <form method="dialog">
+    <p class="md-word" id="mdWord">word</p>
+    <label class="field-label" for="mdInput">释义</label>
+    <input id="mdInput" class="text-input" placeholder="输入中文释义…" autocomplete="off">
+    <div class="md-actions">
+      <button class="btn btn-ghost btn-sm" value="cancel">取消</button>
+      <button class="btn btn-primary btn-sm" value="save" id="mdSave">保存</button>
+    </div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="data/course.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

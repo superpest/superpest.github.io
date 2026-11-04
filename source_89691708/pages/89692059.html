@@ -1,0 +1,1379 @@
+
+
+
+ 
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+<meta http-equiv="pragma" content="no-cache"/>
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0"/>
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+
+<!-- <base href="https://mooc1-api.chaoxing.com"></base> -->
+	
+	
+		<base href="https://mooc1-api.chaoxing.com"></base>
+	
+
+<link type="text/css" rel="stylesheet" href="https://zhuanti.chaoxing.com/res/css/special/course/styleDetail.css?t=20260813"/>
+<link type="text/css" rel="stylesheet" href="https://zhuanti.chaoxing.com/res/css/special/course/dropload.css?t=20260813"/>
+<link rel="stylesheet" type="text/css" href="https://zhuanti.chaoxing.com/res/js/special/course/dest/mobile-photo-preview.css?t=20260813" />
+<link rel="stylesheet" type="text/css" href="https://zhuanti.chaoxing.com/res/js/special/course/photoSwipe/photoswipe.css?t=20260813"/>
+<link rel="stylesheet" type="text/css" href="/ananas/ueditor/themes/iframe_wap_zt.css?t=20260813" />
+<style type="text/css">
+.inp {
+	vertical-align: middle;
+	font: 14px 微软雅黑;
+	color: #333;
+	outline: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.onload_pos{ height:50px;}
+.tishi{ position:fixed;top:0; left:0; z-index:8; width:100%; height:50px; background:#4a4a4a;padding:0 100px 0 11px;}
+.tishi .close{width:35px; height:50px; position:absolute; top:0; right:0;}
+.tishi .close::before{ content:"";display:inline-block;width:14px; height:14px; position:absolute; left:50%; top:50%; margin:-7px 0 0 -7px; background:url(https://zhuanti.chaoxing.com/res/images/special/tishi_close.png) no-repeat; background-size:contain;}
+.tishi .btn{display:inline-block; position:absolute; top:50%; right:35px; width:64px; height:30px; line-height:30px; background:#0099ff; border-radius:5px; color:#FFF; text-align:center; margin-top:-15px; font-size:12px;}
+.tishi .logo{ width:100%; height:100%; overflow:hidden;}
+.tishi .logo img{ display:block; margin-right:5px; margin-top:5px;}
+.shareBox{padding:20px 10px;max-width: 720px; margin: 0 auto;}
+.shareTit{ font-size:16px; color:#000; line-height:20px; margin-bottom:10px; font-weight:bold;}
+.shareCon{font-size:16px; line-height:1.8; word-wrap:break-word; word-break:normal;}
+.shareCon p{ margin:1em 0;}
+.shareCon img{ display:block; max-width:100%; margin:15px auto;}
+.sortOrder{width: 105px;height: 41px;position: fixed;background: #fff;border: solid 1px #ebeced;right: 5px;top: 5px;border-radius: 5px;/* padding: 0 5px; */z-index: 999;box-shadow: 0 0 5px #e3e3e3;}
+.sortOrder b{width:12px;height:5px;background:url(https://zhuanti.chaoxing.com/res/images/special/course/to_03.png) no-repeat;background-size: cover;top:-5px;right:55px;position:absolute}
+.sortOrder ul{border-radius:5px;overflow: hidden;}
+.sortOrder ul li{height:40px;line-height:40px;font-size:14px;border-bottom:solid 1px #ebeced}
+.sortOrder ul li a{display:block;text-align:center}
+.sortOrder ul li a:hover{color:#13a1ff}
+.sortOrderDiv.is-visible {opacity: 1;visibility: visible;}
+.sortOrderDiv{z-index: 99999;background: transparent;position: fixed;left: 0;top: 0;height: 100%;width: 100%;opacity: 0;visibility: hidden;}
+.pullUp{height:40px;line-height:40px;font-size:14px;text-align:center;color:#b3b3b3;}
+.pullUp .pullUpIcon  {display:inline-block;vertical-align:top;width:16px; height:16px;margin:12px 9px 0 0;background:url(http://img.learn.16q.cn/home/2/new/refresh.png) no-repeat;background-size:contain;-webkit-transform:rotate(0deg) translateZ(0);-webkit-transition-duration:0ms;-webkit-animation-name:loading;-webkit-animation-duration:2s;-webkit-animation-iteration-count:infinite;-webkit-animation-timing-function:linear;}
+@-webkit-keyframes loading{
+    from { -webkit-transform:rotate(0deg) translateZ(0); }
+    to { -webkit-transform:rotate(360deg) translateZ(0); }
+}
+/*2020.05.09*/
+.artLib_tit{font-size:17px;line-height: 24px;padding:0 15px;margin-top:14px;font-weight:500;}
+.todayHotPost{
+	padding:0 15px;
+	margin-top:30px;
+}
+.todayHotPost h3{
+	font-size:17px;
+	line-height: 24px;
+	margin-bottom: 0.24rem;
+}
+.todayHotPost ul{
+    overflow: hidden;
+}
+.todayHotPost li{
+    padding:.3rem 0 0;
+    overflow: hidden;
+    position: relative;
+}
+.todayHotPost li::after{
+    display: block;
+    content: "";
+    width: 200%;
+    height: 1px;
+    background: #ebebeb;
+    -webkit-transform: scale(.5, .5);
+    -moz-transform: scale(.5, .5);
+    -ms-transform: scale(.5, .5);
+    -o-transform: scale(.5, .5);
+    transform: scale(.5, .5);
+    position: absolute;
+    left: -50%;
+    bottom: 0;
+}
+.todayHotPost li a{
+    display:block;
+}
+.todayHotPost li .txtBox{
+    overflow: hidden;
+}
+.todayHotPost li .txtBox h3{
+    font-size: .34rem;
+    color:#333;
+    font-weight: 400;
+    line-height: .48rem;
+    padding-bottom: .1rem;
+}
+.todayHotPost li .imgTxtBox{
+    padding-bottom: .2rem;
+    overflow: hidden;
+}
+.todayHotPost li .imgTxtBox p{
+    font-size: .32rem;
+    color:#666;
+    line-height: .45rem;
+    max-height: 1.35rem;
+    margin-bottom: .1rem;
+    word-break: break-all;
+    display:-ms-flexbox;
+    display:-moz-box;
+    display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.todayHotPost li .imgTxtBox .imgBox{
+    margin-top: 0; 
+    max-height:1.5rem;
+    overflow:hidden;
+}
+.todayHotPost li .imgTxtBox .imgBox img{
+    display:block;
+    height:100%;
+}
+.todayHotPost li .imgTxtBox .imgBox img:last-of-type{
+    margin-right: 0;
+}
+.todayHotPost li .oneImgBox p{
+    width:calc(100% - 2.4rem);
+    float: left;
+}
+.todayHotPost li .oneImgBox .imgBox{ 
+    float: right;
+    width:2.2rem;
+}
+.todayHotPost li .threeImgBox .imgBox{  
+    width:100%; 
+}
+
+.newListBox .imgBox span{
+    display:block;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.todayHotPost li .imgTxtBox .imgBox{
+    max-height: 1.45rem;
+}
+.todayHotPost li .imgTxtBox .imgBox img{
+    width:100%;
+    height:auto;
+    float: none;
+    margin:0;
+}
+.todayHotPost li .imgTxtBox .imgBox span{
+    width:100%;
+    height:1.45rem;
+    float: none;
+}
+.todayHotPost li .imgTxtBox .imgBox span:last-of-type{
+    margin-right: 0;
+}
+.todayHotPost li .twoImgBox .imgBox span{
+    float: left;
+    width: 49%;
+    margin-right: 2%;
+}
+.todayHotPost li .threeImgBox .imgBox span{
+    float: left;
+    width: 32%;
+    margin-right: 2%;
+}
+.todayHotPost .threeImg span{
+    width: 32%;
+    height: 2.24rem; 
+    float: left;
+    margin-right: 2%;
+}
+.todayHotPost .twoImg span{
+    width: 49%;
+    height: auto;
+    float: left;
+    margin-right: 2%;
+}
+.todayHotPost .oneImg span{
+    width:100%;
+    height:3.4rem;
+}
+.todayHotPost .imgBox span:last-of-type {
+    margin-right: 0;
+}
+.todayHotPost .imgBox span img{
+    width:auto;
+    height:auto;
+    float: none;
+    margin:0;
+}
+.todayHotPost li .postInof{ 
+	height: 0.7rem;
+	font-size:0.24rem;
+    line-height: .4rem;
+    overflow: hidden;
+    color:#B3B3B3;
+}
+.todayHotPost li .postInof h5{
+	float: left;
+}
+.todayHotPost li .postInof .from,.todayHotPost li .postInof .className{
+	margin-left:0.3rem;
+	float: right;
+}
+.commentBoxTit{
+	height: 0.8rem;
+	line-height: 0.8rem;
+	padding: 0 0 0 15px;
+	position: relative;
+	font-size: 0.3rem;
+    color: #333;
+    font-weight: 500;
+}
+.commentBoxTit .num{
+	font-size:13px;
+	display: inline-block;
+	margin-left:10px;
+}
+
+/*2020.05.14*/
+.todayHotPost li .oneImgBox .noTxtBox{
+	float: left;
+	width:calc(100% - 2.4rem);
+}
+.todayHotPost li .oneImgBox .noTxtBox h3{
+	
+	max-height: 0.96rem;
+    word-break: break-all;
+    display:-ms-flexbox;
+    display:-moz-box;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: 0.08rem;
+}
+.todayHotPost li .oneImgBox .noTxtBox .postInof{
+	height: 0.5rem;
+}
+
+.topic_edit{width:47px; height:100%; position:relative;}
+.topic_edit::before{width:17px; height:15px; content:""; position:absolute; top:50%; left:50%; margin:-7px 0 0 -8px;background:url(https://special.rhky.com/res/images/special/course/edit.png) no-repeat; background-size:17px auto; }
+</style>
+<script type="text/javascript" src="/static/js/domain.js"></script> 
+<script type="text/javascript" src="/js/ServerHost.js"></script>
+
+
+	  <!-- mooc 记录章节内所有的任务点， 视频播放位置等 -->
+	<script type="text/javascript" src="/knowledge/mjsarg?courseid=89691708&knowledgeid=89692059&cardid=87968104&cardall=true"></script>
+
+
+
+<!-- <script src="https://zhuanti.chaoxing.com/res/js/jquery.min.js"></script> -->
+<script src="https://zhuanti.chaoxing.com/res/js/jquery-3.7.1.min.js"></script>
+<script src="https://zhuanti.chaoxing.com/res/js/jquery-migrate-3.4.1.min.js"></script>
+<script src="https://zhuanti.chaoxing.com/res/js/touch.min.js"></script>
+<script src="https://zhuanti.chaoxing.com/res/js/jquery.md5.js" type="text/javascript"></script>
+<script src="https://zhuanti.chaoxing.com/res/js/jquery.hovertreescroll.js"></script>
+
+
+
+	<!-- 非客户端图片全屏 start-->
+	<link rel="stylesheet" href="https://zhuanti.chaoxing.com/res/plugin/photoswipe/default-skin.css"> 
+	<link rel="stylesheet" href="https://zhuanti.chaoxing.com/res/plugin/photoswipe/photoswipe.css"> 
+	<script type="text/javascript" src="https://zhuanti.chaoxing.com/res/plugin/photoswipe/photoswipe-ui-default.min.js"></script> 
+	<script type="text/javascript" src="https://zhuanti.chaoxing.com/res/plugin/photoswipe/photoswipe.min.js"></script> 
+	<script type="text/javascript" src="https://zhuanti.chaoxing.com/res/plugin/photoswipe/pswp.js" ></script>
+	<!-- end  -->
+
+<script src="https://zhuanti.chaoxing.com/res/js/common/tools.js?t=20260813" type="text/javascript"></script>
+
+<script src="/ananas/ext-4.2.0.663/ext.js?t=20260813"></script>
+<script type="text/javascript" src="/ananas/ueditor/ueditor.parse_wap_zt.js?t=20260813"></script>	
+<script type="text/javascript" src="https://zhuanti.chaoxing.com/res/js/search.util.js?t=20260813"></script>
+<script type="text/javascript" src="https://zhuanti.chaoxing.com/res/js/common/web.storage.util.js?t=20260813"></script>
+
+
+
+
+
+
+
+<script src="https://zhuanti.chaoxing.com/res/js/map.js"></script>
+<script src="https://zhuanti.chaoxing.com/res/js/common/petal.util.js" type="text/javascript"></script>
+
+
+<style type="text/css">
+body,html{ height:100%;}
+.moveTop{width:40px; height:40px; position:fixed; bottom:180px; right:15px; z-index:999; background:url(https://zhuanti.chaoxing.com/res/images/special/market/moveTop.png) no-repeat; background-size:contain; display:none; }
+.moveTop_en{width:40px; height:40px; position:fixed; bottom:180px; right:15px; z-index:999; background:url(https://zhuanti.chaoxing.com/res/images/special/market/moveTop_en.png) no-repeat; background-size:contain; display:none; }
+.photo{background:#efeff4;padding:25px 33px;display:none}
+.photo span{text-align:center;font-size:16px;margin:0 35px}
+.photo span i.picture{display:block;width:40px;height:40px;background:url(https://zhuanti.chaoxing.com/res/images/special/discuss/photo_03.png) no-repeat;background-size:100%;margin-bottom:10px}
+.photo span i.takPic{display:block;width:40px;height:40px;background:url(https://zhuanti.chaoxing.com/res/images/special/discuss/photo_05.jpg) no-repeat;background-size:100%;margin-bottom:10px}
+.picList ul li{float:left;width:68px;height:68px;margin-top:5px;margin-right:10px}
+.addPic{text-align: center;
+  font-size: 50px;
+  color: #ccc;
+  position: relative;
+  display: block;
+  float: left;
+  width: 33px;
+  height: 63px;
+  margin-right: 10px;}
+
+.addImg{position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 100px;
+  cursor: pointer;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  width: 33px;
+  height: 33px;
+  }
+.addImg input{ margin-bottom: 25px;
+  height: 33px;
+  width: 33px;
+  top: 0;
+  position: absolute;
+  left: 0;
+}
+.preview{float: left;
+  margin-right: 8px;} 
+.preview-list a{float:left;}
+.addPic2 {
+  text-align: center;
+  font-size: 50px;
+  color: #ccc;
+  position: relative;
+  display: block;
+  float: left;
+  width: 62px;
+  height: 62px;
+}
+.addImg2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 100px;
+  cursor: pointer;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  width: 62px;
+  height: 62px;
+}
+
+.addImg2 input {
+  margin-bottom: 25px;
+  height: 62px;
+  width: 62px;
+  top: 0;
+  position: absolute;
+  left: 0;
+}
+.plImg02 {
+  width: 62px;
+  height: 62px;
+  border-radius: 5px;
+  display: inline;
+  max-width: 100%;
+  margin:0 8px 8px 0;
+}
+.icon-del {
+	background: url(https://zhuanti.chaoxing.com/res/images/special/course/icon-del-img.png) no-repeat;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-size: 20px 20px;
+	position: absolute;
+	right: 10px;
+	top: .5rem;
+	z-index: 3;
+}
+.photo_txt{position:absolute;bottom:-6px;left:0;font-size: 14px;width: 33px;text-align:center;line-height:30px;color: #666;}
+.photo_03{width:33px;height:33px;}
+.addPic2 .photo_03{width:100%;height:100%;}
+.addPic2 .photo_txt{display:none;}
+/*夜间*/
+.ztArtWrap[data-skin=ntmd] .photo{ background:#434343;}
+.ztArtWrap[data-skin=ntmd] .photo_txt{color:#666;}
+/*护眼绿*/
+.ztArtWrap[data-skin=hyl] .photo{ background:#9bc7a3;}
+.ztArtWrap[data-skin=hyl] .photo_txt{color:#60856b;}
+/*羊皮纸*/
+.ztArtWrap[data-skin=ypz] .photo{ background:#e5decc;}
+.ztArtWrap[data-skin=ypz] .photo_txt{color:#a9a085;}
+.mb-szCur{ opacity:0.5}
+.blueSt{color:#0099ff !important;}
+.face_emoji{display:inline;vertical-align:middle;width:12px;height:12px;}
+</style>
+<title>Chapter 7</title>
+<script type="text/javascript">
+var domain = 'rhky.com';
+if(location.host.indexOf('chaoxing') != -1){
+	domain = 'chaoxing.com';
+}else if(location.host.indexOf('zhexuezj') != -1){
+	domain = 'zhexuezj.cn';
+}
+document.domain = domain;
+
+//国际化start
+window.i18={
+	'addPep' : 'addPep',
+	'addGroup' : 'addGroup',
+	'addGroupC' : 'addGroupC',
+	'刚刚': '刚刚',
+	'昨天': '昨天',
+	'分钟前': '分钟前',
+	'小时前': '小时前',
+	'举报' : '举报',
+	'阅读设置' : '阅读设置',
+	'转发' : '转发',
+	'阅读' : '阅读',
+	'阅读详情' : '阅读详情',
+	'编辑' : '编辑',
+	'上一章' : '上一章',
+	'下一章' : '下一章',
+	'版权方要求，下一章节需要付费阅读。' : '版权方要求，下一章节需要付费阅读。',
+	'处理中，请稍候...' : '处理中，请稍候...',
+	'人点赞' : '人点赞',
+	'人觉得这个章节很赞' : '人觉得这个章节很赞',
+	'保存' : '保存',
+	'取消保存' : '取消保存',
+	'已保存至云盘' : '已保存至云盘',
+	'已保存至云盘' : '已保存至云盘',
+	'已从云盘移除' : '已从云盘移除',
+	'保存失败,请稍后重试!' : '保存失败,请稍后重试!',
+	'取消保存失败，请稍后重试!' : '取消保存失败，请稍后重试!',
+	'回复失败，请稍后重试！' : '回复失败，请稍后重试！',
+	'正在加载...' : '正在加载...',
+	'已经到底啦~' : '已经到底啦~'
+}
+//国际化end
+var _knowledgeName = "Chapter 7";
+var puidStr="";//当前用户passport uid
+var knowledgeName = _knowledgeName.replace(/\'/g,"\\\'").replace(/\"/g,"“")
+var specialId = "89691708";
+var imageurl ="https://p.ananas.chaoxing.com/star3/258_153c/e36dc3369d22eb0d28fdf4fc58b39848.png?rw=583&rh=333";
+var appurl=location.protocol+'//'+location.host+'/mobile/mooc/tocourse/'+"VSP_CTjw7Q0aV_pfFjbA3w==";
+var appname=decodeURI("书虫1级《爱情与金钱》双语+MP3");
+var teacherfactor=decodeURI("");
+var puid = "25562024";
+if (navigator.userAgent.indexOf("ChaoXingStudy") > -1) {
+	var ua = navigator.userAgent.toLowerCase();
+    if(ua.match(/(iphone|ipod|ipad);?/i)){
+    	var fromParam = '' || '';
+    	if (fromParam != "") {
+			appurl += "?_from_="+fromParam;
+		}
+    	//通知客户端增加到最近阅读记录
+    	AppUtils.recently(specialId,ToolsUtils.htmlDecodeByRegExp(appname),appurl,ToolsUtils.htmlDecodeByRegExp(teacherfactor),imageurl,puid,'1005');
+    }
+}
+
+
+function subOrCancel(THIS){
+	var status = parseInt($(THIS).attr("status"));
+	if(status == 0){
+		//订阅
+		AppUtils.recScribeImp(specialId, ToolsUtils.htmlDecodeByRegExp(appname), appurl, ToolsUtils.htmlDecodeByRegExp(teacherfactor),imageurl,function (data){
+			if(data.status==1){
+				$("[name='mooc_"+Card.courseId+"']").attr("class", Card.getI18Value("addGroup"));
+				$("[name='mooc_"+Card.courseId+"']").addClass(Card.getI18Value("addGroupC"));
+   				$("[name='mooc_"+Card.courseId+"']").attr("status","1");
+   				AppUtils.clientMessageDisplay(window.i18['已保存至云盘']);
+			}
+		},puid);
+	}else if(status == 1){
+		//取消订阅
+		AppUtils.cancelRecScribeImp(specialId,function (data){
+			$("[name='mooc_"+Card.courseId+"']").attr("class", Card.getI18Value("addGroup"));
+			$("[name='mooc_"+Card.courseId+"']").attr("status",0);
+			AppUtils.clientMessageDisplay(window.i18['已从云盘移除']);
+		});
+	}
+}
+function addBBSTopic(bbsid,type){
+	var flagInfo = JSON.stringify({tag:1,chapterId:'89692059',chapterName:ToolsUtils.htmlDecodeByRegExp(knowledgeName)});
+	AppUtils.getUserInfo('', function(tyrz) {
+		if (tyrz) {
+			AppUtils.addBBSTopicAttach(bbsid,'','','',type,flagInfo, content.cataid,content, quoteInfo);
+		} else {
+			AppUtils.doAppLogin('',function(){
+				AppUtils.addBBSTopicAttach(bbsid,'','','',type,flagInfo, content.cataid,content, quoteInfo);
+			});
+	   }
+   });
+}
+
+
+
+
+
+
+
+
+
+
+var cookieName = "special_font";
+
+//字体背景设置cookie更新
+function updateFontCookie(p_size,p_background,version){
+	if(null != p_size && undefined != p_size && "" != p_size){
+		addCookie(local_fontSize,p_size,24*30*365);//字号 更新服务端设置到本地
+	}
+	if(null != p_background && undefined != p_background && "" != p_background){
+		addCookie(viewModelCookie,p_background,24*30*365);//字号 更新服务端设置到本地
+	}
+	if(null != version && undefined != version && "" != version){
+		addCookie(local_version,version,24*30*365);//字号 更新服务端设置到本地
+	}
+}
+
+//服务端设置字体及背景
+function setFont(p_size,p_background,version){
+	version = eval(version) + 1;//更新操作设置版本号+1
+	updateFontCookie(p_size, p_background, version);
+	var url = location.protocol+"//"+location.host + '/mobile/mooc/setFontJson?p_size='+p_size+'&p_background='+p_background+'&version='+version;
+	$.getJSON(url,function(data){
+		if(data.result==1){
+			updateFontCookie(data.msg.fontSize,data.msg.background,data.msg.version);
+		}else if(data.result==-1){
+  			//未做任何修改后版本号 恢复
+  			_local_version = data.msg.version;
+  			updateFontCookie('', '', _local_version);
+  		}
+	});
+}
+var local_version = 'special_local_version';
+var _local_version = getCookie(local_version);
+if(_local_version==null||_local_version==undefined||_local_version==""){
+	_local_version = 1;
+}
+_local_version = eval(_local_version);
+
+var local_fontSize = "special_fontSize";
+var _local_fontSize = getCookie(local_fontSize);
+
+var viewModelCookie = "special_viewModel";
+var _viewModelCookie = getCookie(viewModelCookie);
+
+var server_version = "1" || 1;
+if(_local_version<=server_version){
+	_local_version = server_version;
+	_local_fontSize = "16px";
+	_viewModelCookie = "dyb";
+	
+	updateFontCookie(_local_fontSize, _viewModelCookie, _local_version);
+}else{
+	setFont(_local_fontSize, _viewModelCookie, eval(_local_version)-1);
+}
+
+var knowledgeId = "89692059" || "";	
+var _name = "书虫1级《爱情与金钱》双语+MP3";
+var couseName = _name.replace(/\'/g,"\\\'").replace(/\"/g,"“");
+
+var _nextKnowledName = "";
+var nextKnowledName = '';
+if(undefined != _nextKnowledName && _nextKnowledName != '') {
+	   nextKnowledName = _nextKnowledName.replace(/\'/g,"\\\'").replace(/\"/g,"“");
+}
+var _prevKnowledgeName = "Chapter 6";
+var prevKnowledgeName = '';
+if(undefined != _prevKnowledgeName && _prevKnowledgeName != '') {
+	   prevKnowledgeName = _prevKnowledgeName.replace(/\'/g,"\\\'").replace(/\"/g,"“");
+}
+</script>
+</head>
+<body class="show ztArtWrap">
+
+<div class="sortOrder noSelect" id="menu" style="display: none;">
+	<b></b>
+    <ul>
+        <li style="background:#fff;"><a style="color:black;"  aria-hidden="true" onclick="feedback('readset');">阅读设置</a></li>
+        
+        	
+        	
+        		
+	        		<li style="background:#fff;display: none;" class="subscride"><a aria-hidden="true" id="chapterSubscribe" style="color:black;"></a></li>
+	        		<script>
+		        		var version = ToolsUtils.getClientVersion('clientVersion');
+		            	if (version != 0 && version > '2.0') {
+		            		$(".subscride").show();
+		            		$(".sortOrder").css("height","81px");
+		            	}
+		       			
+		       		</script>
+        		
+        	
+        
+    </ul>
+</div>
+   <div class="onloadBox" style="display: none;">
+	      <div class="tishi">
+	          <div class="logo">
+	           
+         	 	
+         	 	
+         	 		 <img src="https://zhuanti.chaoxing.com/res/images/special/tishi_logo.png" width="128" height="40">
+         	 	
+         	  
+	              
+	          </div>
+	          <a class="btn fr openApp">立即打开</a>  
+	          <a aria-hidden="true"  class="close"></a>
+	      </div>
+	      <div class="onload_pos"></div>
+   </div>
+ <div>
+ 	<main id="_content" class="ztArtBox">
+   	   <div>
+           <script type="text/javascript">
+			 var isChaoxingStudy = 'false';
+			 var ua = navigator.userAgent.toLowerCase();
+			 var appId = "" || 0;
+			 if(isChaoxingStudy != 'true' && ua.indexOf("mobilelibrary") == -1 && ua.indexOf("aliapp") == -1) {
+					if(appId != -1){
+						//$(".onloadBox").show();
+					}
+					//分享出去的页面背景默认显示
+					//添加到web数据库
+					var webData = "dyb";
+					addCookie("special_viewModel",webData,24*30*365);
+			 }
+			</script>
+           
+	           	
+		       	  <div class="ztArtCon" id="contentBox">
+					  <div>
+						  <a href='#point_1'></a><a id='point_1'></a><p style="text-indent: 2em;"><iframe frameborder="0" scrolling="no" class="ans-module ans-insertaudio-retract" module="insertaudio" data="{&quot;objectid&quot;:&quot;d32687431e57839ae05a9d512105a7dc&quot;,&quot;name&quot;:&quot;\u7231\u60c5\u4e0e\u91d1\u94b1\uff1a7 Chapter.mp3&quot;,&quot;size&quot;:3387506,&quot;hsize&quot;:&quot;3.23 MB&quot;,&quot;type&quot;:&quot;.mp3&quot;,&quot;mid&quot;:&quot;11754606540501470196080190&quot;,&quot;_jobid&quot;:1470196080361}"></iframe><p><br></p></p><a href='#point_2'></a><a id='point_2'></a><p style="text-indent: 0em;"><strong style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal;"><span style="color: rgb(250, 192, 143);">中英对照文本</span></strong></p><a href='#point_3'></a><a id='point_3'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">On Monday morning Sergeant Foster went to Roger&#39;s office and asked some questions．And then he went to Albert&#39;s house and asked some more questions．Inspector Walsh sat in his office and telephoned．He made phone calls about Peter Hobbs and he made phone calls about Tom Briggs．And then he had some coffee and sandwiches．</p><a href='#point_4'></a><a id='point_4'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">星期一早上，福斯特警官去罗杰的办公室，问了几个问题，然后他去艾伯特家，问了些别的问题。沃尔什探长坐在办公室打电话。他打电话找彼特·霍夫斯，然后又打电话找汤姆·布里格斯。接着他要了些咖啡和三明治。</p><a href='#point_5'></a><a id='point_5'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">At three o&#39;clock the two detectives drove to the Clarksons&#39; house．</p><a href='#point_6'></a><a id='point_6'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">3点钟，两名侦探开车去了克拉克森家。</p><a href='#point_7'></a><a id='point_7'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">&#39;I would like to see everyone，&#39;he told Roger．</p><a href='#point_8'></a><a id='point_8'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">“我想见见每个人，”他告诉罗杰。</p><a href='#point_9'></a><a id='point_9'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">Everyone came into the sitting room and sat down．</p><a href='#point_10'></a><a id='point_10'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">大家都走进客厅坐下来。</p><a href='#point_11'></a><a id='point_11'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">Inspector Walsh stood in front of the windows and looked at them，one by one．&#39;I want to talk to you Someone killed Molly Clarkson．Someone put sleeping tablets in her hot milk and killed her Nobody wanted to tell me the true story，but now I know the true story and I&#39;m going to tell you．&#39;</p><a href='#point_12'></a><a id='point_12'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">沃尔什探长站在窗前轮流地看了每个人一眼。“我想和你们谈谈。有人杀死了莫利·克拉克森，有人把安眠药放在她的热牛奶里杀了她。没人愿意告诉我实情，但现在我知道了事情真象，我将会告诉你们。”</p><a href='#point_13'></a><a id='point_13'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">The two dogs came slowly into the room and sat down at Diane&#39;s feet．It was very quiet in the room．</p><a href='#point_14'></a><a id='point_14'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">两条狗慢慢走进房间坐在黛安娜脚旁。房间里非常安静。</p><a href='#point_15'></a><a id='point_15'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">The Inspector looked at Albert．&#39;Mr King，your wife is very ill and needs a nurse．You told me this．You didn&#39;t tell me about your house．You&#39;re selling your house next month because you need the money．&#39;</p><a href='#point_16'></a><a id='point_16'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">探长看着艾伯特。“金先生，你妻子病得很重需要一名护士，你告诉了我。你却没告诉我有关你的房子。因为你们需要钱，你们下个月就要卖了你们的房子。”</p><a href='#point_17'></a><a id='point_17'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">Albert was angry．&#39;Last year I asked Molly&#39;s husband for some money，and he said yes．But then he died in an accident．&#39;</p><a href='#point_18'></a><a id='point_18'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">艾伯特生气了。“去年我向莫利的丈夫要些钱，他答应了。可接着他死于一场事故。”</p><a href='#point_19'></a><a id='point_19'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">&#39;Accident！&#39;Diane cried．&#39;That was no accident．Mother killed Daddy because she wanted his money！</p><a href='#point_20'></a><a id='point_20'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">“事故！”黛安娜叫道。“那不是事故！妈妈想要他的钱，所以她杀了爸爸！”</p><a href='#point_21'></a><a id='point_21'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">&#39;Let&#39;s talk about you now，Diane，&#39;said Inspector Wa<a href='#point_22'></a><a id='point_22'></a>lsh．You visited your mother every month and you to<a href='#point_23'></a><a id='point_23'></a>ok money from her．Last month she gave you money fo<a href='#point_24'></a><a id='point_24'></a>r your television．This month she gave you money fo<a href='#point_25'></a><a id='point_25'></a>r your telephone．Every month you told your mother：“It was no accident；you killed Daddy．I&#39;m going to <a href='#point_26'></a><a id='point_26'></a>tell the police．”Your mother was afraid of the pol<a href='#point_27'></a><a id='point_27'></a>ice and so she gave you the money．But in the end s<a href='#point_28'></a><a id='point_28'></a>he wanted to stop you．She told Dr Pratt．No more mo<a href='#point_29'></a><a id='point_29'></a>ney，she told Dr Pratt on Thursday；and on Saturday <a href='#point_30'></a><a id='point_30'></a>she died．You took the hot milk to your mother－what did she tell you？&#39;</p><a href='#point_31'></a><a id='point_31'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">“咱们现在谈谈你，黛安娜，”沃尔什探长说。“你每个月都来见你母亲，然后从她那儿要走钱。上个月她给你钱买电视，这个月她又为你的电话付钱。每次你告诉你的母亲：&#39;那不是一场事故；你杀了爸爸。我要告诉警察。&#39;你母亲害怕警察，所以她给你钱。但是最后她想阻止你。她告诉了普拉特医生，没有太多的钱了，她是周四告诉普拉特医生的。接着星期天她死了。你端热牛奶给你母亲——她给你说些什么？”</p><a href='#point_32'></a><a id='point_32'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">Diane began to cry．&#39;I loved Daddy！He always gave money to me；he loved me．It was Mother－she didn&#39;t love Daddy and she didn&#39;t love me．Diane stopped．The dogs got up and went to the door．&#39;It&#39;s true，I took a lot of money from Mother．On Saturday she told me—no more money．I wanted to kill her，but I didn&#39;t．&#39;</p><a href='#point_33'></a><a id='point_33'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">黛安娜开始哭。“我爱爸爸！他总是给我钱，他爱我。就是妈妈——她不爱爸爸，也不爱我。”黛安娜停住了。狗站起来向门口走去。“是真的，我从母亲那儿要了不少钱。我想杀了她，可我没有。”</p><a href='#point_34'></a><a id='point_34'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">The dogs came back and sat down again at Diane&#39;s feet．Inspector Walsh looked at Roger．&#39;Mr Clarkson also needed money．&#39;</p><a href='#point_35'></a><a id='point_35'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">狗回来又坐在黛安娜脚旁。沃尔什探长看着罗杰。“克拉克森先生也需要钱。”</p><a href='#point_36'></a><a id='point_36'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">Roger&#39;s face went red．&#39;Don&#39;t tell them！Please！&#39;</p><a href='#point_37'></a><a id='point_37'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">罗杰的脸变红了。“请你别告诉他们！”</p><a href='#point_38'></a><a id='point_38'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">&#39;Mr Clarkson lost his job last month．He has no money．But he has an expensive house and an expensive car．He likes expensive things．&#39;</p><a href='#point_39'></a><a id='point_39'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">“克拉克森先生上个月失业了，他没有钱了。可他有一所昂贵的房子和一辆车。他喜欢昂贵的东西。”</p><a href='#point_40'></a><a id='point_40'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">His sisters looked at him，but Roger put his hand over his eyes．&#39;Don&#39;t talk to me！&#39;</p><a href='#point_41'></a><a id='point_41'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">他的姐妹看着他，可罗杰用手捂住眼睛。“别对我说这些！”</p><a href='#point_42'></a><a id='point_42'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">&#39;It doesn&#39;t matter now！&#39;Diane said．&#39;Mother is dead and we have a lot of money．You don&#39;t need a job．&#39;</p><a href='#point_43'></a><a id='point_43'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">“现在没关系！”黛安娜说。“妈妈死了，我们有很多钱，你不需要一份工作。”</p><a href='#point_44'></a><a id='point_44'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">Roger&#39;s face went red again．&#39;Be quiet，Diane！&#39;</p><a href='#point_45'></a><a id='point_45'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">罗杰的脸又变红了。“住嘴，黛安娜！”</p><a href='#point_46'></a><a id='point_46'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">&#39;Now，Inspector Walsh began again．&#39;Peter Hobbs is a very angry young man．Mrs Clarkson was not very nice to him．He got the sleeping tablets from the shop．But did he put the tablets in the hot milk？I think not．Tom Briggs wanted half the garden for his farm．He was in the kitchen that night．Did he put sleeping tablets in the hot milk？I think not．&#39;</p><a href='#point_47'></a><a id='point_47'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">“现在，”沃尔什探长又开始说了。“彼特·霍布斯是个非常忿怒的年轻人，克拉克森太太对他不太好。他从商店里买到安眠药，可他会把安眠药放在热牛奶里吗？我认为不会。汤姆·布里格斯想要半个花园当他的农常他那晚在厨房，是他放安眠药在热牛奶里了吗？我认为没有。”</p><a href='#point_48'></a><a id='point_48'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">Suddenly it began to rain．For a minute everyone watched it through the window．Jackie took a cigarette from her bag and began to smoke．</p><a href='#point_49'></a><a id='point_49'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">突然天开始下雨了。好一会儿大家都看着窗外的雨。杰基从包里拿了枝烟，开始抽。</p><a href='#point_50'></a><a id='point_50'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">&#39;But someone wanted Peter Hobbs to come into the kitchen that night．She wanted everyone to see him，and listen to him，&#39;Inspector Walsh said．</p><a href='#point_51'></a><a id='point_51'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">“可有人要彼特·霍布斯那晚会厨房。她想要大家都看见他，并听他说话，”沃尔什探长说。</p><a href='#point_52'></a><a id='point_52'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">&#39;She…？I don&#39;t understand，&#39;Roger began，and stopped．</p><a href='#point_53'></a><a id='point_53'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">“她……？我不明白，”罗杰说着，然后又停住了。</p><a href='#point_54'></a><a id='point_54'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">Inspector walsh moved away from the window and sat down．&#39;I&#39;m going to tell you the true story now．Miss Clark-son，you wanted Peter Hobbs to come to the house that night．He was very angry with your mother because of that letter．He said：“I want to kill her．”And you wanted everyone to hear that． Why？&#39;</p><a href='#point_55'></a><a id='point_55'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">沃尔什探长从窗边走过来坐下。“现在我将告诉你们事件的真象。克拉克森小姐，你那晚要彼特·霍布斯来家里。他因为那封信很生你母亲的气。他说：&#39;我要杀了她。&#39;因而你想要大家都听到这话。为什么？”</p><a href='#point_56'></a><a id='point_56'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">Jackie&#39;s face went white．It&#39;s not true！What about Diane？You found the empty bottle in her bag！&#39;</p><a href='#point_57'></a><a id='point_57'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">杰基的脸变白了。“这不是真的！黛安娜呢？你们在她包里发现了空瓶子！”</p><a href='#point_58'></a><a id='point_58'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">Diane stood up．&#39;In my bag？Jackie！What are you talking about？&#39;</p><a href='#point_59'></a><a id='point_59'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">黛安娜站起来。“在我包里？杰基！你在说什么？”</p><a href='#point_60'></a><a id='point_60'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">&#39;Be quiet，please，and sit down，&#39;Inspector Walsh said．He looked at Jackie．&#39;It&#39;s true：we found the bottle in Diane&#39;s bag．But how do you know that？We didn&#39;t tell you．&#39;</p><a href='#point_61'></a><a id='point_61'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">“请安静，坐下，”沃尔什探长说，看着杰基。“没错，我们在黛安娜的包里发现了瓶子。可你怎么知道的？我们并没有告诉你。”</p><a href='#point_62'></a><a id='point_62'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">&#39;You did…before…you told me before！&#39;</p><a href='#point_63'></a><a id='point_63'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">“你们告诉了……先前……你们先前告诉了我！”</p><a href='#point_64'></a><a id='point_64'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">&#39;No．We found the empty bottle in Diane&#39;s room．We told you that．You talked about Diane&#39;s bag；we didn&#39;t tell you．Sergeant foster wrote it all down．&#39;Inspector Walsh looked carefully at Jackie．&#39;A long time ago，you knew Tom Briggs．He was the gardener here and you loved him．But your mother didn&#39;t like him．&#39;</p><a href='#point_65'></a><a id='point_65'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">“没有。我们在黛安娜的房间发现了空瓶，我们告诉了你这事。你说的是黛安娜的包，我们没有告诉你。福斯特警官记下来了。”沃尔什探长仔细看着杰基。“很久以前，你认识了汤姆·布里格斯，他是这儿的园丁，你爱上了他，可你的母亲不喜欢他。”</p><a href='#point_66'></a><a id='point_66'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">Jackie put her hands to her head．&#39;No！No！&#39;</p><a href='#point_67'></a><a id='point_67'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">杰基把手放在头上。“不！不！”</p><a href='#point_68'></a><a id='point_68'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">&#39;We found your picture-an old one-in Mr Briggs&#39;house．You were younger then，and your hair was long．Last year Tom Briggs came back，and you wanted him．He loved you，too，but he had no money．He wanted the garden for his farm，he wanted money，he wanted you．But your mother said no．In the end，you wanted to kill your mother…and you did kill her．Your mother went downstairs to see the dogs and you put the sleeping tablets in her hot milk．Later，you put the empty bottle in Diane&#39;s bag．</p><a href='#point_69'></a><a id='point_69'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">“我发现你的相片——一张旧的——在布里格斯家里。你比现在年青，头发长长的。去年汤姆·布里格斯回来了，你想得到他，他也爱你，可他没有钱。他想要花园当他的农场，他想要钱，他也想得到你。可你母亲不同意。最后，你想杀了你母亲……然后你真的杀了她。你母亲下楼去看狗，然后你把安眠药放在她的热牛奶里。随后，你把空瓶子放进黛安娜的包里。”</p><a href='#point_70'></a><a id='point_70'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">Jackie stood up．Her eyes were dark and afraid．&#39;You don&#39;t understand！she cried．&#39;Mother gave me nothing…all those years．I wanted to be happy…to be with Tom．That&#39;s all．I love Tom，and he loves me．But Mother said no．Always no．&#39;Then she began to cry．Nobody looked at her．</p><a href='#point_71'></a><a id='point_71'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">杰基站起来，她黑黑的眼睛带着恐惧。“你们不知道！”她大声道。“母亲什么也没给我……这么多年了。我想要幸福……和汤姆一起，就这些。我爱汤姆，他也爱我。可母亲不同意，总是不同意。”然后她开始哭，没人理睬她。</p><a href='#point_72'></a><a id='point_72'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">Jackie left the house in a police car．Inspector Walsh watched and then walked slowly to his car．He felt tired and hungry．He stopped and looked back at the house．</p><a href='#point_73'></a><a id='point_73'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">杰基走出房子上了警车。沃尔什探长注视着她，然后慢慢走向他的车。他觉得又累又饿。他停下来回头看着那所房子。</p><a href='#point_74'></a><a id='point_74'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">&#39;Well，&#39;he said to Sergeant Foster，&#39;in the end，they go the money：Albert，Roger，Diane．They&#39;re all rich now．But are they going to be happy？&#39;</p><a href='#point_75'></a><a id='point_75'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">“好了，”他对福斯特警官说，“最后，他们得到了钱：艾伯特，罗杰，黛安娜。他们现在都富有了。可他们会快乐吗？”</p><a href='#point_76'></a><a id='point_76'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">He got into the car．&#39;Let&#39;s go，&#39;he said．&#39;I&#39;m hungry；need a sandwich．&#39;</p><a href='#point_77'></a><a id='point_77'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">他上了小车。“咱们走吧，”他说。“我饿了，我需要块三明治。”</p><a href='#point_78'></a><a id='point_78'></a><p style="font-family: 宋体, &#39;Arial Narrow&#39;; line-height: 25.2px; white-space: normal; text-indent: 2em; background-color: rgb(251, 253, 255);">来自：VOA英语网</p>
+					  </div>
+				  	<div class="clear"></div>
+					  <div class="clearfix linkBox noSelect" style="text-align:right;margin-top: 25px; margin-bottom: 0px; height:32px; moz-user-select: -moz-none; -moz-user-select: none; -o-user-select: none; -khtml-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;padding:0 10px 5px;">
+						  
+						  <label class="link2" id="prevChapter" style="display:none;width:120px;height:56px;line-height:54px;display:inline-block;border:1px solid #0099FF;color:#0099ff;border-radius:30px;font-size:24px;text-align:center;-webkit-transform: scale(.5, .5);-moz-transform: scale(.5, .5);-ms-transform: scale(.5, .5);-o-transform: scale(.5, .5);transform: scale(.5, .5);-webkit-transform-origin: right top;transform-origin: right top;position: relative;margin-left: -30px;"></label>
+						  <label class="link" id="nextChapter" style="display:none;color:#FFF;background:#0099FF;width:120px;height:56px;line-height:56px;display:inline-block;border:1px solid #0099FF;border-radius:30px;font-size:24px;text-align:center;-webkit-transform: scale(.5, .5);-moz-transform: scale(.5, .5);-ms-transform: scale(.5, .5);-o-transform: scale(.5, .5);transform: scale(.5, .5);-webkit-transform-origin: right top;transform-origin: right top;position: relative;margin-left: -30px;"></label>
+						  
+					  </div>
+		          </div>
+					<div class="iosHeight">
+		          <!--链接信息2020.05.09 begin-->
+			      
+				  <!--链接信息2020.05.09 end-->
+		          <div id="divBottom"></div>
+		          
+					</div>
+	           
+	           
+           
+           
+           
+       </div>
+     </main>
+   </div>
+    <div id="readset" class="feedback noSelect" >
+         <ul class="fontSizeBox">
+            <li>
+            	<h2>字号</h2>
+                <div class="sm-font">
+            		<!-- <div class="mb-szdn" onclick="smallContent()"></div><div class="mb-szup" onclick="bigContent()"></div> -->
+            		<div class="mb-sz sel" id="font_sz_17" onclick="fontUtil.changeContent(0,this)">小</div>
+                    <div class="mb-sz" id="font_sz_21" onclick="fontUtil.changeContent(1,this)">中</div>
+                    <div class="mb-sz" id="font_sz_26" onclick="fontUtil.changeContent(2,this)">大</div>
+                    <div class="mb-sz" id="font_sz_33" onclick="fontUtil.changeContent(3,this)">超大</div>
+                </div>
+            </li>
+            <li>
+            	<h2>背景</h2>
+                <div class="sm-skin">
+            		<div class="mb-skin-dyb sel" id="dyb" onClick="set_background(this,'dyb')"></div>
+            		<div class="mb-skin-ypz" id="ypz" onClick="set_background(this,'ypz')"></div>
+            		<div class="mb-skin-hyl" id="hyl" onClick="set_background(this,'hyl')"></div>
+            		<div class="mb-ntmd" id="ntmd" onClick="set_background(this,'ntmd')"></div>
+                </div>
+            </li>
+            <!--/*20190314新增*/-->
+            <li id="read_float">
+            	<h2>悬浮窗</h2>
+                <p id="read_float_switch" class="switch switch-on"><span aria-hidden="true" class='slider'></span></p>
+            </li>
+        </ul>
+        <script type="text/javascript">
+           if(undefined != _viewModelCookie) {
+        		$(".ztArtCon p").css("background","").css("background-color","");
+        		$(".ztArtCon span").css("background","").css("background-color","");
+        		$(".ztArtWrap").attr("data-skin",_viewModelCookie);
+        		if(_viewModelCookie == 'ntmd'){
+        			titleColor = '0x4d514d';
+       		    	var nextStyle = $("#nextChapter").attr('style');
+       		    	$("#nextChapter").css("cssText", nextStyle + ";color:#FFF!important;");
+
+       		    	var prevStyle = $("#prevChapter").attr('style');
+       		    	$("#prevChapter").css("cssText", prevStyle + ";color:rgb(0, 153, 255)!important;");
+        		}
+        		$(".sm-skin > div").removeClass("sel");
+        		$("#"+_viewModelCookie).addClass("sel");
+       		
+       	   }
+          </script>
+    </div>
+        
+		<!-- 
+		*@Description:写笔记按钮增加焦点
+		*@Author:LiChangChang
+		-->
+   	<div id="write-ball" role="button" aria-label="写笔记" class="write-ball noSelect"></div>
+
+	
+	
+	<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="pswp__bg"></div>
+		<div class="pswp__scroll-wrap">
+			<div class="pswp__container">
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+			</div>
+			<div class="pswp__ui pswp__ui--hidden">
+			
+				<div class="pswp__top-bar">
+					<div class="pswp__counter"></div>
+					<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+					<!--<button class="pswp__button pswp__button--share" title="Share"></button>-->
+					<!--<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>-->
+					<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+					<div class="pswp__preloader">
+						<div class="pswp__preloader__icn">
+							<div class="pswp__preloader__cut">
+								<div class="pswp__preloader__donut"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+					<div class="pswp__share-tooltip"></div> 
+				</div>
+				<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+				<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+				<div class="pswp__caption">
+					<div class="pswp__caption__center"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 章节收藏 -->
+	<script type="text/javascript" src="https://zhuanti.chaoxing.com/res/js/special/course/chapter_subscribe.util.js?t=20260813"></script>
+    <script type="text/javascript">
+    var cur_pointIndex = 0;//设置字体时记录当前锚点以便调整大小后还定位到当前锚点
+    var imags = [];
+	var contentImages = '' || "";
+    try {
+    	if ($.trim(contentImages) != "") {
+    		try {
+    			contentImages = JSON.parse(contentImages);
+    			var len = contentImages.length;
+    			if (len > 0) {
+    				for (var i = 0;i < len; i++) {
+    					if (i < 5) {
+    						imags.push(contentImages[i]);
+    					}
+    				}
+    			}
+			} catch (e) {
+				
+			}
+    	}else{
+    		imags.push('https://p.ananas.chaoxing.com/star3/258_153c/e36dc3369d22eb0d28fdf4fc58b39848.png?rw=583&rh=333');
+    	}
+    	
+    	var resUrl = location.protocol+"//"+location.host + "/mobile/mooc/tocard/89692059?courseId=VSP_CTjw7Q0aV_pfFjbA3w==&name="+encodeURIComponent(knowledgeName)+"&cxs_toolbar=1";
+    	//收藏
+	    ChapterSubscribe.option = {
+	    	   id:'chapterSubscribe',
+			   courseId:'89691708',
+			   chapterId:knowledgeId,
+			   courseName:couseName,
+			   chapterName:knowledgeName,
+			   desc:'中英对照文本 On Monday morning Sergeant F...',
+			   resUrl:resUrl,
+			   author:'萤火虫',
+			   imags:imags,
+			   level:'1005',
+			   onSubSuccess:function(){
+			   },
+			   onCancleSubSuccess:function(){
+			   }
+	   }
+	   
+       //章节收藏ios客户端
+	   if (navigator.userAgent.indexOf("ChaoXingStudy") > -1) {
+			var ua = navigator.userAgent.toLowerCase();
+		    if(ua.match(/(iphone|ipod|ipad);?/i)){
+		    	 ChapterSubscribe.accept();
+		    }
+	   }
+       uParse(".ztArtBox", null, null);
+	} catch (e) {
+	}
+	
+	
+    $(".ans-attach-ct").css("text-indent","0");
+    $(".ans-attach-info").css("vertical-align","top");
+    
+    function closeBox(){
+		$(".onload").fadeOut();
+	}
+  
+   $(function(){
+	   $(".close").click(function(){
+			$(".onloadBox").fadeOut(500);
+		});
+   })
+	function feedback(type){
+		$('.feedback').removeClass('is-visible');
+//		if(type=='fontsize'){
+//			$('#fontsize').addClass('is-visible');
+//		}else if(type=='bgcolor'){
+//			$('#bgcolor').addClass('is-visible');
+//		}else
+		if(type=='readset'){
+			$('#readset').addClass('is-visible');
+		}else{
+			$('.feedback').addClass('is-visible');
+		}
+		
+		$(".photo").hide();
+		$("#menu").hide();
+	}
+	$(function(){
+		//话题评论图片高度按比例
+		$(".imgBig .img").css({height:Math.floor($(".imgBig .img").width())})
+		
+		//close popup
+		$('.feedback').on('click', function(event){
+			if($(event.target).is('.feedback-close') || $(event.target).is('.feedback')) {
+				event.preventDefault();
+				$(this).removeClass('is-visible');
+				cur_pointIndex = 0;
+			}
+			
+		});
+		touch.on($('.feedback'), 'swipe', function(e){
+			   e.preventDefault();
+				$('.feedback').removeClass('is-visible');
+				cur_pointIndex = 0;
+		});
+		$(window).scroll(function() {
+			  if($("#menu").is(":hidden") == false){
+				  $("#menu").hide();
+			  }
+		});
+	});
+	//章节记录
+	var chapterCookieName = "special_89691708";
+	var specialCookie = getCookie(chapterCookieName);
+	addCookie(chapterCookieName,"89692059",24*30);
+	addStorageData(chapterCookieName,knowledgeId);
+	
+	//设置字体大小 2016.12.06
+    var fontUtil = {
+	  fonteLib: ["17px","21px","26px","33px"],
+      name : "special_fontSize",
+      value: function () {
+    	  var fontSize=_local_fontSize;
+    	  if(undefined == fontSize){
+    		  //默认字体大小为pc字体大小
+        	  return this.fonteLib[0];
+    	  }
+    	  for(var i=0;i<this.fonteLib.length;i++){
+    		  if(fontSize==this.fonteLib[i]){
+    			  return fontSize;
+    		  }
+    	  }
+    	  return this.fonteLib[0];
+      },
+      changeContent: function(e,f){
+        $(f).addClass("sel").siblings().removeClass("sel");
+        var selectedFont = this.fonteLib[e];
+        $(".ztArtCon,.ztArtCon *").css("font-size",selectedFont);//文章内容
+		if(is_set){//判断是否是点击还是初始化的，点击则进入
+			setFont(this.fonteLib[e], '', _local_version);
+			if(cur_pointIndex <= 0){
+				cur_pointIndex = Card.pointIndex;
+			}
+			$("html,body").animate({scrollTop:$("#point_"+cur_pointIndex).offset().top},1000);
+		}
+      },
+      init: function () {
+        var s = this.value();
+        if(s != 0){
+        	s = s.replace("px","");
+        	is_set = false;
+        	$("#font_sz_"+s).click();
+        	is_set = true;
+        }
+      }
+    };
+    fontUtil.init();
+	//设置背景
+	function set_background(a,className){
+		$(".ztArtWrap").attr("data-skin",className);
+		$(".sm-skin > div").removeClass("sel");
+		$(a).addClass("sel");
+		setFont('', className, _local_version);
+
+	    //阅读页顶部条背景色改变start
+	    var titleColor = '0x000000';
+	    var bgcolor = $('body').attr('data-skin');
+	    var barBgColor = ToolsUtils.getScaleColor(bgcolor);
+	    if(bgcolor == 'ntmd'){
+	    	titleColor = '0x4d514d';
+
+	    	var nextStyle = $("#nextChapter").attr('style');
+	    	$("#nextChapter").css("cssText", nextStyle + ";color:#FFF!important;");
+
+	    	var prevStyle = $("#prevChapter").attr('style');
+	    	$("#prevChapter").css("cssText", prevStyle + ";color:rgb(0, 153, 255)!important;");
+	    }
+	    var rgb = ToolsUtils.hexToRgb(barBgColor.replace('0x', ''));
+	    AppUtils.changeStatusBar({'alpha':255,'red':rgb.r,'green':rgb.g,'blue':rgb.b});
+	    AppUtils.toolBarColor({'titleColor':titleColor,'barBgColor':barBgColor});
+	  	//阅读页顶部条背景色改变end
+	}	
+  
+	var otherConfig = {
+			author:"",
+			id:"mooc_89691708",
+			description:'中英对照文本 On Monday morning Sergeant F...'
+	};
+	var appurl = "http://gowz.co/erulFw" || "";
+	if(appurl == ""){
+		appurl = "https://zhuanti.chaoxing.com/mobile/mooc/tocourse/VSP_CTjw7Q0aV_pfFjbA3w==";
+		var type = '0';
+		if(undefined != type && type != ''){
+			   type = parseInt(type);
+			   if(type == 3) {
+				   appurl += '?btype=tushu';
+			   }
+		}
+	}
+	var specialType = "0";
+	var appid =  $.md5(appurl);
+
+	var sourceDetail = "" || "";
+	if(sourceDetail != ""){
+		sourceDetail += "." + ToolsUtils.htmlDecodeByRegExp(couseName) || "";
+	}else{
+		sourceDetail = ToolsUtils.htmlDecodeByRegExp(couseName) || "";
+	}
+	var content = {
+			cataid: "100000001",
+			aid:"mooc_89692059",
+			appid: appid,
+			appname: ToolsUtils.htmlDecodeByRegExp(couseName), 
+			appurl: appurl, 
+			logopath: "https://p.ananas.chaoxing.com/star3/258_153c/e36dc3369d22eb0d28fdf4fc58b39848.png?rw=583&rh=333", 
+			otherConfig:otherConfig,
+			available: 1, 
+			bind:1,			
+			isWebapp: 1, 
+			useClientTool: 2, 
+			needLogin: 0, 
+			needRegist: 0, 
+			norder: 0, 
+			loginUrl: '', 
+			properties: '', 
+			description: '', 
+			usable: '', 
+			logoshowtype: 1, 
+			rights: 1, 
+			loginkey: '',
+			imgs:imags,
+			level:'1005'
+		};
+		content.sourceConfig = {
+				cataid: "100000001",
+				author:"萤火虫",
+				teacherfactor:'',
+				magname:"《"+ToolsUtils.htmlDecodeByRegExp(couseName)+"》",
+				level:'1005',
+
+		        "id":"89691708",
+		        "chapterId":"89692059",
+		        "subjectLogo":"https://p.ananas.chaoxing.com/star3/258_153c/e36dc3369d22eb0d28fdf4fc58b39848.png?rw=583&rh=333",
+		        "subjectTitle": ToolsUtils.htmlDecodeByRegExp(couseName) || "",
+		        "subjectLink":appurl,
+		        "sourceDetail":sourceDetail
+				
+		};
+	
+	   var _aname = "Chapter 7";
+	   var aName = _aname.replace(/\'/g,"\\\'").replace(/\"/g,"“")
+	   var tranferUrl = "https://zhuanti.chaoxing.com/mobile/mooc/tocard/89692059?courseId=VSP_CTjw7Q0aV_pfFjbA3w==&name=B1C27451F5845ED8F168114A393AF07A&code=&type=1&viewBackDir=1" || '';
+	   if(tranferUrl == ''){
+		   tranferUrl = window.location.href;
+	   }else{
+	   		var cxs_toolbar = ToolsUtils.getUrlParam('cxs_toolbar') || '0';
+	   		tranferUrl = tranferUrl + '&cxs_toolbar=' + cxs_toolbar;
+	   }
+		var quoteInfo = {
+			transferLogo:"https://p.ananas.chaoxing.com/star3/258_153c/e36dc3369d22eb0d28fdf4fc58b39848.png?rw=583&rh=333",
+			transferLink:appurl,
+			transferTitle:ToolsUtils.htmlDecodeByRegExp(couseName),
+			transferDescription:ToolsUtils.htmlDecodeByRegExp(aName),
+			transferDescriptionLink:tranferUrl,
+			transferContent:"中英对照文本 On Monday morning Sergeant F...",
+			transferType:1,
+			transferTypeTitle:"专题章节",
+			tabBarShowFlag:0,
+			type:3,
+			transferKey:"300000001_89691708-89692059"
+		};
+		
+		window.cardObj = {
+				topDoman:'chaoxing.com',
+				knowledgeId:'89692059',
+				courseId:'89691708',
+				encCourseId:'VSP_CTjw7Q0aV_pfFjbA3w==',
+				courseName:couseName,
+				imageurl:'https://p.ananas.chaoxing.com/star3/258_153c/e36dc3369d22eb0d28fdf4fc58b39848.png?rw=583&rh=333',
+				prevKnowledgeCode:'',
+				prevKnowledgeId:'89691984',
+				prevKnowledgeName:prevKnowledgeName,
+				codePrevKnowledgeName:'B1C27451F5845ED8606170ABC7CAD24E',
+				nextKnowledgeCode:'',
+				nextKnowledgeId:'',
+				nextKnowledName:nextKnowledName,
+				lastKnowledgeId:'89691984',
+				lastKnowledgeName:'',
+				teacherfactor:'',
+				creator:'萤火虫',
+				authorId:'25562024',
+				knowledgeName:knowledgeName,
+				aname:aName,
+				type:'',
+				codeNextKnowledgeName:'',
+				quoteInfo:quoteInfo,
+				content:content,
+				bbsid:'300000000000000000000000000089691708',
+				points:'[{"point":"point_1"},{"point":"point_2"},{"point":"point_3"},{"point":"point_4"},{"point":"point_5"},{"point":"point_6"},{"point":"point_7"},{"point":"point_8"},{"point":"point_9"},{"point":"point_10"},{"point":"point_11"},{"point":"point_12"},{"point":"point_13"},{"point":"point_14"},{"point":"point_15"},{"point":"point_16"},{"point":"point_17"},{"point":"point_18"},{"point":"point_19"},{"point":"point_20"},{"point":"point_21"},{"point":"point_22"},{"point":"point_23"},{"point":"point_24"},{"point":"point_25"},{"point":"point_26"},{"point":"point_27"},{"point":"point_28"},{"point":"point_29"},{"point":"point_30"},{"point":"point_31"},{"point":"point_32"},{"point":"point_33"},{"point":"point_34"},{"point":"point_35"},{"point":"point_36"},{"point":"point_37"},{"point":"point_38"},{"point":"point_39"},{"point":"point_40"},{"point":"point_41"},{"point":"point_42"},{"point":"point_43"},{"point":"point_44"},{"point":"point_45"},{"point":"point_46"},{"point":"point_47"},{"point":"point_48"},{"point":"point_49"},{"point":"point_50"},{"point":"point_51"},{"point":"point_52"},{"point":"point_53"},{"point":"point_54"},{"point":"point_55"},{"point":"point_56"},{"point":"point_57"},{"point":"point_58"},{"point":"point_59"},{"point":"point_60"},{"point":"point_61"},{"point":"point_62"},{"point":"point_63"},{"point":"point_64"},{"point":"point_65"},{"point":"point_66"},{"point":"point_67"},{"point":"point_68"},{"point":"point_69"},{"point":"point_70"},{"point":"point_71"},{"point":"point_72"},{"point":"point_73"},{"point":"point_74"},{"point":"point_75"},{"point":"point_76"},{"point":"point_77"},{"point":"point_78"}]',
+				pointIndex:'',
+				encBbsid:'CCD1F55461E6F32B93A9A187FFE056B2CD475AA37492395374E8E77982C608888AB1350FC0C3DC0259AAABB87D2226C7FD9960C9405B1732293DE05D7262365E1392AFC7BCE674161169E43B336A92E2F0186401BC9E92CE6BEDE3A8CA3D0D8B6BEDE3A8CA3D0D8BF456F1D56CA90FB38A48A7939E58D48C617ABFB3B7EEE921B3B7F4FD88573FAF7701D06D7706E685',
+				oldPointIndex:'',
+				pst:'true',
+				last:'12',
+			    viewBackDir:'1',
+				curlabel:'18',
+				fromParam:'',
+				level:'1005',
+				swichComment:'0' || 0,
+				redEnc:'' || '',
+				isCreateUser:'' || 'false',
+				isEditUser:'false' || 'false',
+				isHideOperation:'0',
+				client_appId:'' || '',
+				pointExt:'' || ''
+	}
+		
+		function addOrDeleteBookmarks(THIS){
+			$("#menu").hide();
+			var att = parseInt($(THIS).attr("att"));
+			var url = location.protocol+"//"+location.host;
+			if(att == 1){
+				url += "/special/course/chapter/bookmarks/"+Card.courseId+"/"+Card.knowledgeId+"/delete";
+			}else if(att == 2){
+				url += "/special/course/chapter/bookmarks/"+Card.courseId+"/"+Card.knowledgeId+"/add";
+			}
+			$.getJSON(url,function(data){
+				var status = data.status;
+				AppUtils.clientMessageDisplay(data.msg);
+				if(!status) {
+					return;
+				}
+				if(att == 1){
+					$(THIS).attr("att",2).html("添加书签");
+				}else if(att == 2){
+					$(THIS).attr("att",1).html("删除书签");
+				}
+			});
+			
+		}
+		window.wx_detailObj = {
+				wx_appId: "", // 必填，公众号的唯一标识
+				wx_timestamp: "", // 必填，生成签名的时间戳
+				wx_nonceStr: "", // 必填，生成签名的随机串
+				wx_signature: "",// 必填，签名
+				
+				wx_title: window.cardObj.knowledgeName,
+				wx_content: '中英对照文本 On Monday morning Sergeant F...',
+				wx_imgUrl: window.cardObj.imageurl,
+				
+				mini_puid:"",
+				mini_fid:""
+			};
+    </script>
+    <script src="https://zhuanti.chaoxing.com/res/js/jquery.form.min.js" type="text/javascript"></script>
+    <script src="https://zhuanti.chaoxing.com/res/js/common/touchwipe.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://floweryd.chaoxing.com/res/plugin/flower/jquery.flower.js?t=20260813"></script>
+    <script type="text/javascript" src="https://zhuanti.chaoxing.com/res/js/special/course/topic.util.js?t=20260813"></script>
+    <script type="text/javascript" src="https://zhuanti.chaoxing.com/res/js/common/faces.js?t=20260813"></script>
+    <script type="text/javascript" src="https://zhuanti.chaoxing.com/res/js/special/course/courseDetail.util.js?t=20260813"></script>
+	<script type="text/javascript" src="https://zhuanti.chaoxing.com/res/js/common/jweixin-1.3.2.js?t=20260813"></script>
+	<script type="text/javascript" src="https://zhuanti.chaoxing.com/res/js/common/wx_config.js?t=20260813"></script>
+    <script type="text/javascript">
+    var getIOSVersion = function(){
+    	var ua = navigator.userAgent.toLowerCase();
+		if(ua.match(/(iphone|ipod);?/i)){
+			return ua.match(/iphone os ([0-9]+)_/)[1];
+		}else if(ua.match(/(ipad);?/i)){
+			return (ua.match(/cpu os ([0-9]+)_/))[1];
+		}
+	}
+    
+    
+    //跳转到专题编辑页面
+    function editorChapter(){
+    	$("#menu").hide();
+    	
+    	if(navigator.userAgent.indexOf("ChaoXingStudy") > -1) {
+      		 var ua = navigator.userAgent;
+  	  	   	   ua = ua.substring(ua.indexOf("ChaoXingStudy"));
+      	 	   ua = ua.substring(ua.indexOf("_")+1);
+      	 	   ua = ua.substring(ua.indexOf("_")+1);
+      	 	   ua = ua.substring(0,ua.indexOf("_"));
+      	 	   var version = ua;
+      	 	   if (version != 0 && version > '2.0') {
+	        		var conf = {tools:['image','camera','audio','video','cloud','file','mySpace','work','chapter','note','qa','bbs'],nojob:true};
+	        	    var params =  {courseid:'89691708',cardid:'87968104',knowledgeid:'89692059'};
+	        		AppUtils.editor(knowledgeName,conf,params);
+        	    }else{
+        			var editUrl = 'http://mooc1-api.chaoxing.com/editContent2?specialType=BOOK&courseId=89691708&chapterId=89692059';
+	         	    AppUtils.openUrl({
+	         			  title: '编辑',
+	         			  webUrl: editUrl
+	         		});
+        	} 
+      	}
+    	
+ 	    
+    }
+    $(function(){
+    	if (navigator.userAgent.indexOf("ChaoXingStudy") == -1){
+    		initPhotoSwipeFromDOM('.ztArtCon img');
+    	}
+    	$(".openApp").click(function(){
+   		   var appId = "";
+   		   if(appId == null || "" == appId || undefined == appId){
+   			   appId = 1000;
+   		   }
+    	    var resourceUrl = 'zhuanti.chaoxing.com/mobile/mooc/tocard/89692059?courseId=VSP_CTjw7Q0aV_pfFjbA3w==&name=B1C27451F5845ED8F168114A393AF07A&code=&type=1&viewBackDir=1' || "";
+    	    if(resourceUrl == "") return;
+    	    var appScheme = "chaoxingshareback://url="+encodeURIComponent(resourceUrl)+"&title="+knowledgeName+"&sharebacktype=1";
+    	    var tipUrl = "https://share1.chaoxing.com/share/"+appId+"/tips?apptag=&appScheme=" + encodeURIComponent(appScheme);
+  			//如果是ios
+   	 	    var ua = navigator.userAgent.toLowerCase();
+   		    var isWeixin = ua.indexOf('micromessenger') != -1;
+   			var is_qq = ua.indexOf('qq/') != -1;
+   			var is_tim = ua.indexOf('tim/') != -1;
+   	 	    if(ua.match(/(iphone|ipod|ipad);?/i)){
+	   	 	    if(isWeixin || is_qq || is_tim){
+	  			   tipUrl = "https://share1.chaoxing.com/share/"+appId+"/tips?apptag=&sharebacktype=1&appScheme=" + encodeURIComponent(appScheme)+'&title='+knowledgeName+'&url='+resourceUrl;
+	  		   }else{
+	   	   		   //如果版本大于等于IOS9
+	   	   		   var iosVersion = getIOSVersion();
+	   	   		   if(iosVersion >= 9){
+	   	   			   var url = resourceUrl.substring(resourceUrl.indexOf("/")+1,resourceUrl.length);
+	   	   				tipUrl = 'https://share1.chaoxing.com/share/'+appId+'/'+url+'&sharebacktype=1&appScheme='+encodeURIComponent(appScheme)+'&url='+resourceUrl+'&title='+knowledgeName+'&apptag='; 
+	   	   		   }
+	  		   }
+	   	 	}else{
+	   	    	if(isWeixin){
+	   			   tipUrl = 'https://sharewh.mti100.com/share/androidTip?appId=&type=1&title=Chapter 7&callback='+encodeURIComponent('https://'+resourceUrl+'&appId='+appId);
+	   		    }
+	    	}
+   		   document.location.href = tipUrl;	
+       });
+       $("#specialName").click(function(){
+    		AppUtils.openUrl({
+    			toolbarType:2,
+    			title: couseName,
+    			webUrl: "https://zhuanti.chaoxing.com/mobile/mooc/tocourse/VSP_CTjw7Q0aV_pfFjbA3w=="
+    		});
+    	});
+    	//转发过来点击左上角图片也打开专题目录
+    	$(".imgGroup").click(function(){
+    		var _name = '书虫1级《爱情与金钱》双语+MP3';
+    		var name = _name.replace(/\'/g,"\\\'").replace(/\"/g,"“");
+    		AppUtils.openUrl({
+    			toolbarType:2, 
+    			title: name,
+    			webUrl: "https://zhuanti.chaoxing.com/mobile/mooc/tocourse/VSP_CTjw7Q0aV_pfFjbA3w=="
+    		});
+    	});
+    	$("#_content").bind("mousedown", function() {
+    		if($("#menu").is(":hidden") == false){
+				  $("#menu").hide();
+			}
+    	});
+    });
+    
+
+    window.i18_courseDetail_topic_read = '阅读';
+    window.i18_courseDetail_topic_readDetail = '阅读详情';
+    window.i18_courseDetail_topic_edit = '编辑';
+    window.i18_courseDetail_topic_loading = '正在加载...';
+    window.i18_courseDetail_topic_loadEnd = '已经到底啦~';
+    window.i18_courseDetail_topic_replyFail = '回复失败，请稍后重试！';
+    
+    window.i18_course_courseDetail_prevChapt = '上一章';
+    window.i18_course_courseDetail_nextChapt = '下一章';
+    window.i18_course_courseDetail_nextCopyright = '版权方要求，下一章节需要付费阅读。';
+    window.i18_course_courseDetail_coll = '保存';
+    window.i18_course_courseDetail_colled = '取消保存';
+    window.i18_course_courseDetail_readSet = '阅读设置';
+    //window.i18_course_courseDetail_fontSet = '字号设置';
+    //window.i18_course_courseDetail_bgSet = '背景设置';
+    window.i18_course_courseDetail_edit = '编辑';
+    window.i18_course_courseDetail_common_tip = '处理中，请稍候...';
+    window.i18_course_courseDetail_zan = '人点赞';
+    window.i18_course_courseDetail_morezan = '人觉得这个章节很赞';
+    
+	 window.i18_course_courseDetail_sub_subSuccess = '已保存至云盘';
+	 window.i18_course_courseDetail_sub_subSucceed = '已保存至云盘';
+	 window.i18_course_courseDetail_sub_canSubSuccess = '已从云盘移除';
+	 window.i18_course_courseDetail_sub_subFail = '保存失败,请稍后重试!';
+	 window.i18_course_courseDetail_sub_canSubFail = '取消保存失败，请稍后重试!';
+ 
+    //动态构造参数值
+    function i18_courseDetail_dynamicParam(type, value){
+		var result = '';
+		if(type == 1){
+			result = '等'+value+'人点赞';
+		}else if(type == 2){
+			result = '最多显示'+value+'人';
+		}
+		return result;
+    }
+    
+  //视频开始投
+    var playVideoMap = new Map();
+    function video_screen(video_url, option){
+//     	resType  int 资源类型 1=图片 2=网页 3 视频 4 音频
+//     	opt   int 操作类型 1=投屏 0=关闭投屏
+//     	url 资源地址
+//     	AppUtils.clientMessageDisplay('start：'+video_url);
+
+		var playVideo = playVideoMap.get(video_url);
+		if(playVideo != ''){
+			if(option == '1' && (playVideo.indexOf('http') != -1 || playVideo == '1')){
+				return;
+			}else if(option == '0' && playVideo.indexOf('http') != -1){
+	        	jsBridge.postNotification('CLIENT_SCREEN_CAST_EVENT', {"url":playVideo, "opt":"0", "resType":"3"});
+	    		playVideoMap.removeByKey(video_url);
+				return;
+			}
+		}
+		playVideoMap.put(video_url, option);
+		
+    	console.log('start：'+video_url);
+    	var d_url = 'https://zhuanti.chaoxing.com/special/files/'+video_url+'/fileDetail?key=httphd';
+    	$.getJSON(d_url,function(data){
+			var result = data.result;
+			if(result != 1) {
+    			AppUtils.clientMessageDisplay(data.msg);
+				return;
+			}
+			var play_video_url = data.msg.httphd || '';
+			if(play_video_url == ''){
+				play_video_url = data.msg.httpmd || '';
+			}
+			if(play_video_url == ''){
+				play_video_url = data.msg.http || '';
+			}
+	    	if(option == "1"){
+				playVideoMap.put(video_url, play_video_url);
+		    	jsBridge.postNotification('CLIENT_SCREEN_CAST_EVENT', {"url":play_video_url, "opt":"1", "resType":"3"});
+	    	}else{
+	        	jsBridge.postNotification('CLIENT_SCREEN_CAST_EVENT', {"url":play_video_url, "opt":"0", "resType":"3"});
+	    	}
+		});
+    }
+    
+    function playWebScreen(){
+       	console.log(window.frames.length);
+       	var iframes = window.frames;
+       	if(iframes != null && iframes.length > 0){
+       		for(var i=0;i<iframes.length;i++){
+       			var iframe_document = iframes[i].document;
+       			var iframe = $(iframe_document.body).find('.ans-video');
+       			if(iframe != null && iframe.length > 0){
+   	   		     	try{
+   	   		     		iframe_document.getElementById('ztvideo').addEventListener('playing',function(){
+   	        				var video_url = $(this).html();
+   	        				objectId = video_url.substring(video_url.indexOf('src="')+5, video_url.indexOf('?'));
+   	        				//"http://zt.maliemlun.cn/video/d6/90/ff/b2079339b0456ce8bda9b33193a31b3d/sd.mp4?"
+//    	        				var objectId = video_url.substring(0,video_url.indexOf('?'));
+   	        				objectId = objectId.split('/');
+   	   		     			video_screen(objectId[objectId.length - 2], "1");
+   	    				});
+   	    			    
+   	   		     		iframe_document.getElementById('ztvideo').addEventListener('ended',function(){
+   	   		     			var video_url = $(this).html();
+	        				objectId = video_url.substring(video_url.indexOf('src="')+5, video_url.indexOf('?'));
+	        				objectId = objectId.split('/');
+   	   		     			video_screen(objectId[objectId.length - 2], "0");
+   	    				});
+   	   		     	}catch(err){
+   	   		     		console.log(err);
+   	   		     	}
+       			}
+       		}
+       	}
+    }
+    
+    
+    //处理打点 start
+    var pointTime = '20261104111410' || '';
+    var pointToken = '' || '';
+    var pointFrom = '' || '0';
+    var pointExt = '' || '';
+    var c_puid = '' || '';
+    if(c_puid == '' || c_puid == 0){
+    	c_puid = '' || '';
+	}
+    if(c_puid == '' || c_puid == 0){
+    	//c_puid = getCookie('UID');
+	}
+    if(pointTime != '' && pointToken != ''){
+        window.onload = function () {
+            //阅读资源设置,必须在页面初始化之后执行,线上请把注释删掉
+            setSetting({
+                resourceID: '89691708,89692059',
+                resourceType: 'special',
+                from: pointFrom,
+                passportUID: c_puid,
+                t: pointTime,
+                ext: pointExt,
+                token: pointToken
+            });
+        }
+        var _bdhmProtocol = (("https:" === document.location.protocol) ? " https://" : " http://");
+        var hm = document.createElement("script");
+        // hm.src = "addPoint-src.js";
+        hm.src = _bdhmProtocol + "data-xxt.aichaoxing.com/res/addPoint.js?t="+new Date().getTime();
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    }
+    //处理打点 end
+    
+    </script>
+</body>
+</html>
