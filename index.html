@@ -113,7 +113,6 @@
   .topbar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 20px;
     height: 74px;
     border-bottom: 1px solid var(--rule-2);
@@ -142,13 +141,6 @@
     font-size: 11px;
     letter-spacing: .16em;
     color: var(--ink-3);
-  }
-  .topbar-note {
-    font-size: 10px;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    color: var(--ink-2);
-    white-space: nowrap;
   }
 
   /* ---------- 开场 ---------- */
@@ -443,7 +435,6 @@
   }
 
   @media (max-width: 560px) {
-    .topbar-note { display: none; }
     .card { grid-template-columns: 1fr; }
     .cover {
       aspect-ratio: 16 / 9;
@@ -471,7 +462,6 @@
       </span>
       <span class="brand-text"><strong>书虫</strong><em>精读 · 听力</em></span>
     </div>
-    <span class="topbar-note">superpest.github.io</span>
   </header>
 
   <main>
