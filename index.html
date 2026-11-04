@@ -413,6 +413,14 @@
     letter-spacing: .08em;
     color: var(--ink-2);
   }
+  .footer-stats {
+    font-size: 11px;
+    letter-spacing: .06em;
+    color: var(--ink-3);
+    font-variant-numeric: tabular-nums;
+  }
+  .footer-stats b { font-weight: 600; color: var(--ink-2); }
+  .footer-stats .sep { color: var(--ink-3); }
 
   @media (prefers-reduced-motion: no-preference) {
     .hero > *, .shelf-head, .cards, .footer {
@@ -435,6 +443,7 @@
   }
 
   @media (max-width: 560px) {
+    .footer { flex-direction: column; align-items: center; text-align: center; gap: 8px; }
     .card { grid-template-columns: 1fr; }
     .cover {
       aspect-ratio: 16 / 9;
@@ -522,8 +531,10 @@
 
   <footer class="footer">
     <span>书虫 · 精读与听力</span>
+    <span class="footer-stats" id="busuanzi_container_site_pv" style="display:none">访问 <b id="busuanzi_value_site_pv">—</b> 次<span class="sep"> · </span><span id="busuanzi_container_site_uv"><b id="busuanzi_value_site_uv">—</b> 位访客</span></span>
     <span>慢慢做，慢慢读。</span>
   </footer>
 </div>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>
