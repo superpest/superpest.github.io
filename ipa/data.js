@@ -1,8 +1,8 @@
 // 48 个国际音标：分类与音标符号参考新东方国际音标表
 // https://www.xdf.cn/zhuanti/bd-phonetic-alphabet-card/index.html
-// 音标音频为新东方公开页面中的发音文件，仅作学习参考。
+// 音标音频已下载到本地 audio/ 目录（原为新东方公开页面中的发音文件，仅作学习参考）。
 
-const IPA_AUDIO_BASE = 'https://www.xdf.cn/zhuanti/bd-phonetic-alphabet-card/';
+const IPA_AUDIO_BASE = 'audio/';
 
 // 每个音标对应的音频文件（按原站音频映射）
 const IPA_AUDIO_FILES = {
