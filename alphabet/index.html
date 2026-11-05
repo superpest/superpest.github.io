@@ -163,7 +163,7 @@
   .btn {
     border: 0; cursor: pointer; font-family: inherit; font-weight: 800;
     border-radius: 99px; padding: 10px 18px; font-size: 15px;
-    transition: transform .12s;
+    transition: transform .12s; white-space: nowrap;
   }
   .btn:active { transform: scale(.94); }
   .btn-hear { background: hsl(var(--hue) 80% 50%); color: #fff; box-shadow: 0 3px 0 hsl(var(--hue) 80% 38%); }
@@ -187,6 +187,11 @@
   .chip:hover { transform: translateY(-2px); }
   .chip:active { transform: scale(.95); }
   .chip .e { font-size: 22px; }
+  .chip .txt { display: inline-flex; flex-direction: column; align-items: flex-start; line-height: 1.15; }
+  .chip .ipa {
+    margin-top: 3px; font-size: 12px; font-weight: 700; color: hsl(var(--hue) 45% 46%);
+    font-family: "Doulos SIL", "Charis SIL", "Gentium Plus", "DejaVu Sans", "Lucida Sans Unicode", "Arial Unicode MS", serif;
+  }
   .chip.playing { background: hsl(var(--hue) 85% 90%); outline: 3px solid hsl(var(--hue) 80% 60%); }
 
   .sent {
@@ -211,6 +216,11 @@
     .grid { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 12px; }
     .tile .pair { font-size: 34px; }
     .navbtn { top: auto; bottom: 14px; }
+    .hero .ipa { font-size: 17px; padding: 7px 14px; }
+    .keyword-card { gap: 10px; padding: 14px; }
+    .keyword-card .emo { font-size: 44px; }
+    .keyword-card .kw { font-size: 25px; }
+    .btn-hear { padding: 10px 14px; font-size: 14px; }
   }
 </style>
 </head>
@@ -420,10 +430,12 @@
   });
 
   /* ---------- detail ---------- */
-  function chip(word, emoji, isCvc) {
+  function chip(word, emoji, isCvc, ipa) {
     var b = document.createElement('button');
     b.className = 'chip';
-    b.innerHTML = (emoji ? '<span class="e">' + emoji + '</span>' : '') + '<span>' + word + '</span>';
+    b.innerHTML = (emoji ? '<span class="e">' + emoji + '</span>' : '') +
+      '<span class="txt"><span class="w">' + word + '</span>' +
+      (ipa ? '<span class="ipa">' + ipa + '</span>' : '') + '</span>';
     b.onclick = function () {
       var blend = isCvc && document.getElementById('blendMode').checked;
       flashChip(b, blend ? word.length * 700 + 1200 : 900);
@@ -446,15 +458,15 @@
     document.getElementById('dKw').textContent = d.keyword;
 
     var w = document.getElementById('dWords'); w.innerHTML = '';
-    d.words.forEach(function (x) { w.appendChild(chip(x.word, x.emoji, false)); });
+    d.words.forEach(function (x) { w.appendChild(chip(x.word, x.emoji, false, x.ipa)); });
     document.getElementById('secWords').style.display = d.words.length ? '' : 'none';
 
     var c = document.getElementById('dCvc'); c.innerHTML = '';
-    d.cvc.forEach(function (x) { c.appendChild(chip(x.word, x.emoji, true)); });
+    d.cvc.forEach(function (x) { c.appendChild(chip(x.word, x.emoji, true, x.ipa)); });
     document.getElementById('secCvc').style.display = d.cvc.length ? '' : 'none';
 
     var g = document.getElementById('dLonger'); g.innerHTML = '';
-    d.longer.forEach(function (x) { g.appendChild(chip(x.word, x.emoji, false)); });
+    d.longer.forEach(function (x) { g.appendChild(chip(x.word, x.emoji, false, x.ipa)); });
     document.getElementById('secLonger').style.display = d.longer.length ? '' : 'none';
 
     var s = document.getElementById('dSents'); s.innerHTML = '';
