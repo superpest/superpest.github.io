@@ -416,6 +416,14 @@
       linear-gradient(160deg, #3fbf8c 0%, #2f9e6e 55%, #1f7a54 100%);
   }
   .cover-ipa .cover-title { font-style: normal; letter-spacing: .02em; }
+
+  .cover-print {
+    background:
+      radial-gradient(120% 90% at 18% 0%, rgba(255, 255, 255, .18), transparent 55%),
+      linear-gradient(160deg, #3f93c9 0%, #2e7fb8 55%, #1f5c88 100%);
+  }
+  .cover-print .cover-title { font-style: normal; letter-spacing: .02em; }
+  .cover-print .cover-title em { display: block; }
   .cover-ipa .cover-title em { display: block; }
 
   /* ---------- 页脚 ---------- */
@@ -500,7 +508,7 @@
     <section class="shelf" aria-labelledby="shelf-title">
       <div class="shelf-head">
         <h2 id="shelf-title">书架</h2>
-        <span class="shelf-count">4 份材料</span>
+        <span class="shelf-count">5 份材料</span>
       </div>
 
       <div class="cards">
@@ -613,6 +621,35 @@
             </div>
             <span class="card-go">
               打开课程
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h13"/><path d="m13 6 6 6-6 6"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <a class="card" href="resources/" aria-label="下载可打印练习纸">
+          <div class="cover cover-print" aria-hidden="true">
+            <span class="cover-series">PRINTABLE<br>WORKSHEETS</span>
+            <div>
+              <div class="cover-title"><em>Practice</em><span>Sheets</span></div>
+              <div class="cover-rule"></div>
+              <span class="cover-zh">可打印练习纸</span>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <p class="card-kicker">Printable · A4 PDF</p>
+            <h3 class="card-title">Practice Sheets</h3>
+            <p class="card-zh">字母 · 音标 · 拼读</p>
+            <p class="card-desc">3 份 A4 练习纸：字母描红、48 音标速记卡、CVC 拼读练习。下载后直接打印，配套站点发音一起用。</p>
+            <div class="chips">
+              <span class="chip"><i class="dot"></i>3 份 PDF</span>
+              <span class="chip">A4 打印</span>
+              <span class="chip">免费下载</span>
+            </div>
+            <span class="card-go">
+              免费下载
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M5 12h13"/><path d="m13 6 6 6-6 6"/>
               </svg>
