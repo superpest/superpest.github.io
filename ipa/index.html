@@ -202,6 +202,10 @@
   .word:active { transform: scale(.96); }
   .word .e { font-size: 22px; }
   .word .w { font-size: 18px; font-weight: 800; color: var(--ink); }
+  .word .ipa {
+    font-family: var(--ipa-font); font-size: 13px; font-weight: 700;
+    color: var(--green-dark); margin-left: 7px;
+  }
   .word .zh { display: block; font-size: 11px; font-weight: 700; color: var(--muted); }
   .word.playing { background: var(--mint); outline: 2px solid rgba(47,158,110,.5); }
 
@@ -403,7 +407,8 @@
       var b = document.createElement('button');
       b.className = 'word';
       b.innerHTML = (x.e ? '<span class="e">' + x.e + '</span>' : '') +
-        '<span><span class="w">' + x.w + '</span><span class="zh">' + x.zh + '</span></span>';
+        '<span><span class="w">' + x.w + '</span><span class="ipa">' + (x.ipa || '') + '</span>' +
+        '<span class="zh">' + x.zh + '</span></span>';
       b.onclick = function () {
         stopAudio();
         b.classList.add('playing');
