@@ -380,6 +380,14 @@
   .cover-abc .cover-title { font-style: normal; letter-spacing: .04em; }
   .cover-abc .cover-title em { display: block; }
 
+  .cover-ipa {
+    background:
+      radial-gradient(120% 90% at 18% 0%, rgba(255, 255, 255, .18), transparent 55%),
+      linear-gradient(160deg, #3fbf8c 0%, #2f9e6e 55%, #1f7a54 100%);
+  }
+  .cover-ipa .cover-title { font-style: normal; letter-spacing: .02em; }
+  .cover-ipa .cover-title em { display: block; }
+
   /* ---------- 页脚 ---------- */
   .footer {
     display: flex;
@@ -462,7 +470,7 @@
     <section class="shelf" aria-labelledby="shelf-title">
       <div class="shelf-head">
         <h2 id="shelf-title">书架</h2>
-        <span class="shelf-count">3 份材料</span>
+        <span class="shelf-count">4 份材料</span>
       </div>
 
       <div class="cards">
@@ -488,6 +496,35 @@
             </div>
             <span class="card-go">
               打开课程
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h13"/><path d="m13 6 6 6-6 6"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <a class="card" href="ipa/" aria-label="打开工具：国际音标表 48 个音标">
+          <div class="cover cover-ipa" aria-hidden="true">
+            <span class="cover-series">INTERNATIONAL<br>PHONETIC ALPHABET</span>
+            <div>
+              <div class="cover-title"><em>Phonetic</em><span>Alphabet</span></div>
+              <div class="cover-rule"></div>
+              <span class="cover-zh">国际音标表</span>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <p class="card-kicker">IPA · 48 Phonemes</p>
+            <h3 class="card-title">Phonetic Alphabet</h3>
+            <p class="card-zh">国际音标表</p>
+            <p class="card-desc">20 个元音、28 个辅音，按发音部位分类；点一下听标准发音，点进去看口型要点和例词。</p>
+            <div class="chips">
+              <span class="chip"><i class="dot"></i>48 个音标</span>
+              <span class="chip">点读发音</span>
+              <span class="chip">发音口型</span>
+            </div>
+            <span class="card-go">
+              打开工具
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M5 12h13"/><path d="m13 6 6 6-6 6"/>
               </svg>

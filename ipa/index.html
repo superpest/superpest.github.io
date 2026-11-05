@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>国际音标表 · 48 个音标</title>
+<style>
+  :root {
+    --bg: #f2faf5;
+    --ink: #1f3d33;
+    --muted: #6d8a7e;
+    --card: #ffffff;
+    --green: #2f9e6e;
+    --green-dark: #1f7a54;
+    --mint: #e5f7ee;
+    --line: #d9efe3;
+    --radius: 18px;
+    --ipa-font: "Doulos SIL", "Charis SIL", "Gentium Plus", "DejaVu Sans", "Lucida Sans Unicode", "Arial Unicode MS", serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, sans-serif;
+    background: var(--bg); color: var(--ink); min-height: 100vh;
+    background-image: radial-gradient(#d8efe1 1.1px, transparent 1.1px);
+    background-size: 26px 26px;
+  }
+
+  /* ---------- header ---------- */
+  .banner {
+    position: relative; overflow: hidden; color: #f2fff9;
+    background:
+      radial-gradient(90% 120% at 85% -20%, rgba(255,255,255,.25), transparent 60%),
+      linear-gradient(150deg, #3fbf8c 0%, #2f9e6e 55%, #1f7a54 100%);
+    padding: 30px 20px 54px;
+    border-radius: 0 0 28px 28px;
+    box-shadow: 0 10px 30px -16px rgba(31,122,84,.6);
+  }
+  .banner::before, .banner::after {
+    content: ""; position: absolute; border-radius: 50%;
+    background: rgba(255,255,255,.09);
+  }
+  .banner::before { width: 240px; height: 240px; right: -70px; top: -90px; }
+  .banner::after { width: 150px; height: 150px; left: -50px; bottom: -70px; }
+  .banner-inner { position: relative; max-width: 1080px; margin: 0 auto; }
+  .banner h1 {
+    font-size: clamp(28px, 5vw, 42px); font-weight: 900; letter-spacing: 2px;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  }
+  .banner .en {
+    margin-top: 8px; font-size: 12px; letter-spacing: .28em; text-transform: uppercase;
+    color: rgba(242,255,249,.75); font-weight: 700;
+  }
+  .banner .lead {
+    margin-top: 14px; font-size: 14px; line-height: 1.7; color: rgba(242,255,249,.9); max-width: 640px;
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 99px;
+    background: rgba(255,255,255,.18); font-size: 12px; font-weight: 800; letter-spacing: 1px;
+    border: 1px solid rgba(255,255,255,.28);
+  }
+  .ipa-chip {
+    font-family: var(--ipa-font); font-weight: 900; letter-spacing: .5px;
+  }
+
+  /* ---------- tabs ---------- */
+  .toolbar {
+    max-width: 1080px; margin: -28px auto 0; padding: 0 20px; position: relative; z-index: 2;
+  }
+  .cat-tabs {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: #fff;
+    border-radius: 22px; padding: 6px; box-shadow: 0 10px 26px -14px rgba(31,122,84,.45);
+  }
+  .cat-tabs button {
+    border: 0; background: transparent; padding: 14px 8px; border-radius: 17px;
+    font-family: inherit; font-size: 17px; font-weight: 900; color: var(--muted); cursor: pointer;
+    transition: background .2s, color .2s;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .cat-tabs button small { font-size: 11px; font-weight: 700; opacity: .8; }
+  .cat-tabs button.on { background: var(--green); color: #fff; box-shadow: 0 4px 12px rgba(47,158,110,.35); }
+
+  .sub-tabs {
+    max-width: 1080px; margin: 16px auto 0; padding: 0 20px;
+    display: flex; flex-wrap: wrap; gap: 10px;
+  }
+  .sub-tabs button {
+    border: 0; cursor: pointer; font-family: inherit; font-weight: 800; font-size: 14px;
+    padding: 9px 18px; border-radius: 99px; background: #fff; color: var(--muted);
+    box-shadow: 0 2px 8px rgba(31,122,84,.08);
+  }
+  .sub-tabs button.on { background: var(--mint); color: var(--green-dark); outline: 2px solid rgba(47,158,110,.35); }
+
+  .board {
+    max-width: 1080px; margin: 10px auto 90px; padding: 0 20px;
+  }
+  .group { margin-top: 26px; }
+  .group-head {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+    font-size: 15px; font-weight: 900; color: var(--green-dark);
+  }
+  .group-head::before {
+    content: ""; width: 5px; height: 18px; border-radius: 99px; background: var(--green);
+  }
+  .group-head .count { font-size: 12px; font-weight: 700; color: var(--muted); }
+
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 12px;
+  }
+  .card {
+    position: relative; border: 0; cursor: pointer; font-family: inherit;
+    background: var(--card); border-radius: var(--radius); padding: 16px 6px 12px;
+    text-align: center; box-shadow: 0 3px 0 #e4f3ea, 0 8px 20px -12px rgba(31,122,84,.4);
+    transition: transform .16s cubic-bezier(.2,.8,.2,1), box-shadow .16s;
+  }
+  .card:hover { transform: translateY(-4px); }
+  .card:active { transform: translateY(1px) scale(.97); }
+  .card .sym {
+    display: block; font-family: var(--ipa-font); font-size: 27px; font-weight: 900;
+    line-height: 1.15; color: var(--ink);
+  }
+  .card .ex {
+    display: block; margin-top: 5px; font-size: 11.5px; font-weight: 700; color: var(--muted);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .card .spk {
+    display: flex; justify-content: center; margin-top: 7px; color: var(--green);
+  }
+  .card .spk svg { width: 16px; height: 16px; }
+  .card.playing { background: var(--mint); box-shadow: 0 3px 0 rgba(47,158,110,.4), 0 0 0 3px rgba(47,158,110,.4); }
+  .card.playing .spk { animation: pulse .8s ease-in-out infinite; }
+  @keyframes pulse { 50% { transform: scale(1.18); opacity: .7; } }
+
+  /* ---------- detail overlay ---------- */
+  .overlay {
+    position: fixed; inset: 0; background: rgba(20,45,36,.45);
+    display: none; align-items: flex-start; justify-content: center;
+    overflow-y: auto; padding: 24px 14px 60px; z-index: 50;
+  }
+  .overlay.open { display: flex; animation: fade .2s ease; }
+  @keyframes fade { from { opacity: 0 } to { opacity: 1 } }
+  .sheet {
+    background: var(--bg); width: 100%; max-width: 720px; border-radius: 28px;
+    padding: 26px 24px 36px; position: relative;
+    box-shadow: 0 24px 60px rgba(0,0,0,.25);
+    animation: pop .25s cubic-bezier(.2,.9,.3,1.2);
+  }
+  @keyframes pop { from { transform: translateY(24px) scale(.97); opacity: 0 } }
+  .sheet .close {
+    position: absolute; top: 14px; right: 14px; width: 40px; height: 40px;
+    border-radius: 50%; border: 0; background: #fff; font-size: 18px; cursor: pointer;
+    box-shadow: 0 2px 8px rgba(31,122,84,.16); color: var(--muted);
+  }
+  .navbtn {
+    position: absolute; top: 96px; width: 42px; height: 42px; border-radius: 50%;
+    border: 0; background: #fff; font-size: 20px; cursor: pointer;
+    box-shadow: 0 3px 10px rgba(31,122,84,.18); color: var(--green-dark);
+  }
+  .navbtn.prev { left: 10px; }
+  .navbtn.next { right: 10px; }
+
+  .hero { text-align: center; padding: 10px 40px 0; }
+  .hero .big {
+    display: block; font-family: var(--ipa-font); font-size: clamp(64px, 15vw, 104px);
+    font-weight: 900; line-height: 1.05; color: var(--green-dark);
+    text-shadow: 0 5px 0 #d3efdf;
+  }
+  .hero .tags { margin-top: 10px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .tag {
+    display: inline-block; padding: 5px 14px; border-radius: 99px; font-size: 13px; font-weight: 800;
+    background: var(--mint); color: var(--green-dark);
+  }
+  .tag.sound { background: #fff; box-shadow: inset 0 0 0 2px var(--line); color: var(--muted); }
+  .hero .tip {
+    margin: 16px auto 0; max-width: 520px; font-size: 14px; color: var(--muted);
+    line-height: 1.7; text-align: left; background: #fff; border-radius: 16px; padding: 14px 16px;
+  }
+  .btn {
+    border: 0; cursor: pointer; font-family: inherit; font-weight: 800;
+    border-radius: 99px; padding: 11px 22px; font-size: 15px; transition: transform .12s;
+  }
+  .btn:active { transform: scale(.94); }
+  .btn-hear {
+    margin-top: 18px; background: var(--green); color: #fff;
+    box-shadow: 0 3px 0 var(--green-dark);
+  }
+
+  .sec { margin-top: 26px; }
+  .sec h3 {
+    font-size: 16px; font-weight: 900; color: var(--green-dark);
+    display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+  }
+  .sec h3::after { content: ""; flex: 1; height: 3px; border-radius: 3px; background: var(--line); }
+  .words { display: flex; flex-wrap: wrap; gap: 10px; }
+  .word {
+    border: 0; cursor: pointer; font-family: inherit; text-align: left;
+    background: #fff; border-radius: 16px; padding: 10px 14px;
+    box-shadow: 0 3px 0 #e4f3ea, 0 6px 14px -8px rgba(31,122,84,.35);
+    display: inline-flex; align-items: center; gap: 9px; transition: transform .12s;
+  }
+  .word:hover { transform: translateY(-2px); }
+  .word:active { transform: scale(.96); }
+  .word .e { font-size: 22px; }
+  .word .w { font-size: 18px; font-weight: 800; color: var(--ink); }
+  .word .zh { display: block; font-size: 11px; font-weight: 700; color: var(--muted); }
+  .word.playing { background: var(--mint); outline: 2px solid rgba(47,158,110,.5); }
+
+  footer {
+    max-width: 1080px; margin: 0 auto; padding: 0 20px 46px;
+    color: #8fa99e; font-size: 12px; line-height: 1.8; text-align: center;
+  }
+  footer a { color: #6fa08a; }
+
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: repeat(auto-fill, minmax(78px, 1fr)); gap: 10px; }
+    .card .sym { font-size: 23px; }
+    .card .ex { font-size: 10.5px; }
+    .navbtn { top: auto; bottom: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="banner">
+  <div class="banner-inner">
+    <h1>国际音标 <span class="badge">48 个音标</span></h1>
+    <div class="en">International Phonetic Alphabet</div>
+    <p class="lead">20 个元音 + 28 个辅音。点任意音标就能听发音，点进去还能看发音口型要点和例词。</p>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="cat-tabs" id="catTabs">
+    <button data-cat="元音" class="on">元音 <small>20</small></button>
+    <button data-cat="辅音">辅音 <small>28</small></button>
+  </div>
+</div>
+
+<div class="sub-tabs" id="subTabs"></div>
+
+<div class="board" id="board"></div>
+
+<footer>
+  音标分类与发音参考 <a href="https://www.xdf.cn/zhuanti/bd-phonetic-alphabet-card/index.html" target="_blank" rel="noopener">新东方国际音标表</a>；音标音频来自其公开页面。例词朗读由浏览器语音合成提供。
+</footer>
+
+<div class="overlay" id="overlay">
+  <div class="sheet" id="sheet">
+    <button class="close" id="closeBtn" aria-label="关闭">✕</button>
+    <button class="navbtn prev" id="prevBtn" aria-label="上一个">‹</button>
+    <button class="navbtn next" id="nextBtn" aria-label="下一个">›</button>
+
+    <div class="hero">
+      <span class="big" id="dSym">iː</span>
+      <div class="tags">
+        <span class="tag" id="dCat">元音</span>
+        <span class="tag sound" id="dGroup">前元音</span>
+      </div>
+      <div class="tip" id="dTip"></div>
+      <button class="btn btn-hear" id="dHear">🔊 听音标</button>
+    </div>
+
+    <div class="sec">
+      <h3>📖 例词 <span style="font-weight:400;font-size:12px;color:#6d8a7e">点一点听发音</span></h3>
+      <div class="words" id="dWords"></div>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var CATS = {
+    '元音': ['单元音', '双元音'],
+    '辅音': ['清辅音', '浊辅音']
+  };
+  var state = { cat: '元音', sub: '单元音' };
+  var current = null;
+  var audio = null;
+
+  var board = document.getElementById('board');
+  var overlay = document.getElementById('overlay');
+  var sheet = document.getElementById('sheet');
+
+  /* ---------- helpers ---------- */
+  function audioUrl(item) {
+    var f = IPA_AUDIO_FILES[item.id];
+    return f ? IPA_AUDIO_BASE + f : '';
+  }
+  function stopAudio() {
+    if (audio) { audio.pause(); audio.currentTime = 0; }
+    document.querySelectorAll('.playing').forEach(function (el) { el.classList.remove('playing'); });
+  }
+  function playPhoneme(item, onFail) {
+    stopAudio();
+    var url = audioUrl(item);
+    if (!url) { if (onFail) onFail(); return; }
+    audio = new Audio(url);
+    audio.onended = function () { document.querySelectorAll('.playing').forEach(function (el) { el.classList.remove('playing'); }); };
+    audio.onerror = function () { if (onFail) onFail(); };
+    audio.play().catch(function () { if (onFail) onFail(); });
+  }
+
+  var voice = null;
+  function pickVoice() {
+    if (!('speechSynthesis' in window)) return;
+    var vs = speechSynthesis.getVoices();
+    voice = vs.find(function (v) { return /en[-_]US/i.test(v.lang) && /google/i.test(v.name); })
+         || vs.find(function (v) { return /en[-_]US/i.test(v.lang); })
+         || vs.find(function (v) { return /^en/i.test(v.lang); }) || null;
+  }
+  if ('speechSynthesis' in window) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
+  function speak(text, rate, onend) {
+    if (!('speechSynthesis' in window)) { if (onend) onend(); return; }
+    speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    if (voice) u.voice = voice;
+    u.lang = 'en-US'; u.rate = rate || 0.85; u.pitch = 1.05;
+    if (onend) u.onend = onend;
+    speechSynthesis.speak(u);
+  }
+  function speakFallback(item) {
+    var w = item.words && item.words[0];
+    if (w) speak(w.w, 0.75);
+  }
+
+  /* ---------- render ---------- */
+  function renderSubTabs() {
+    var box = document.getElementById('subTabs');
+    box.innerHTML = '';
+    CATS[state.cat].forEach(function (sub) {
+      var b = document.createElement('button');
+      b.textContent = sub;
+      b.className = sub === state.sub ? 'on' : '';
+      b.onclick = function () { state.sub = sub; renderSubTabs(); renderBoard(); };
+      box.appendChild(b);
+    });
+  }
+
+  function makeCard(item) {
+    var b = document.createElement('button');
+    b.className = 'card';
+    b.setAttribute('aria-label', '音标 ' + item.ipa + '，点击听发音');
+    b.innerHTML =
+      '<span class="sym">' + item.ipa + '</span>' +
+      '<span class="ex">' + (item.words[0] ? item.words[0].w : '') + '</span>' +
+      '<span class="spk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg></span>';
+    b.onclick = function () {
+      b.classList.add('playing');
+      playPhoneme(item, function () { b.classList.remove('playing'); speakFallback(item); });
+      openDetail(item);
+    };
+    return b;
+  }
+
+  function renderBoard() {
+    var groups = [];
+    var seen = {};
+    IPA_DATA.filter(function (d) { return d.cat === state.cat && d.sub === state.sub; })
+      .forEach(function (d) {
+        if (!seen[d.group]) { seen[d.group] = []; groups.push(d.group); }
+        seen[d.group].push(d);
+      });
+
+    board.innerHTML = '';
+    groups.forEach(function (name) {
+      var wrap = document.createElement('section');
+      wrap.className = 'group';
+      var head = document.createElement('div');
+      head.className = 'group-head';
+      head.innerHTML = name + ' <span class="count">' + seen[name].length + ' 个</span>';
+      var grid = document.createElement('div');
+      grid.className = 'grid';
+      seen[name].forEach(function (item) { grid.appendChild(makeCard(item)); });
+      wrap.appendChild(head);
+      wrap.appendChild(grid);
+      board.appendChild(wrap);
+    });
+  }
+
+  document.getElementById('catTabs').addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (!b) return;
+    state.cat = b.dataset.cat;
+    state.sub = CATS[state.cat][0];
+    this.querySelectorAll('button').forEach(function (x) { x.classList.toggle('on', x === b); });
+    renderSubTabs(); renderBoard();
+  });
+
+  /* ---------- detail ---------- */
+  function openDetail(item) {
+    current = item;
+    document.getElementById('dSym').textContent = '[' + item.ipa + ']';
+    document.getElementById('dCat').textContent = item.cat + ' · ' + item.sub;
+    document.getElementById('dGroup').textContent = item.group;
+    document.getElementById('dTip').textContent = '👄 ' + item.tip;
+
+    var w = document.getElementById('dWords');
+    w.innerHTML = '';
+    item.words.forEach(function (x) {
+      var b = document.createElement('button');
+      b.className = 'word';
+      b.innerHTML = (x.e ? '<span class="e">' + x.e + '</span>' : '') +
+        '<span><span class="w">' + x.w + '</span><span class="zh">' + x.zh + '</span></span>';
+      b.onclick = function () {
+        stopAudio();
+        b.classList.add('playing');
+        speak(x.w, 0.8, function () { b.classList.remove('playing'); });
+        setTimeout(function () { b.classList.remove('playing'); }, 2500);
+      };
+      w.appendChild(b);
+    });
+
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    overlay.scrollTop = 0;
+  }
+
+  function closeDetail() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    stopAudio();
+    if ('speechSynthesis' in window) speechSynthesis.cancel();
+    renderBoard();
+  }
+
+  function step(dir) {
+    var list = IPA_DATA.filter(function (d) { return d.cat === state.cat && d.sub === state.sub; });
+    if (!list.length) return;
+    var i = list.indexOf(current);
+    var next = list[(i + dir + list.length) % list.length];
+    next && openDetail(next);
+  }
+
+  document.getElementById('dHear').onclick = function () {
+    if (!current) return;
+    stopAudio();
+    playPhoneme(current, function () { speakFallback(current); });
+  };
+  document.getElementById('closeBtn').onclick = closeDetail;
+  document.getElementById('prevBtn').onclick = function () { step(-1); };
+  document.getElementById('nextBtn').onclick = function () { step(1); };
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) closeDetail(); });
+  document.addEventListener('keydown', function (e) {
+    if (!overlay.classList.contains('open')) return;
+    if (e.key === 'Escape') closeDetail();
+    if (e.key === 'ArrowLeft') step(-1);
+    if (e.key === 'ArrowRight') step(1);
+  });
+
+  renderSubTabs();
+  renderBoard();
+})();
+</script>
+</body>
+</html>
