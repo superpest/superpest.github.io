@@ -205,7 +205,7 @@
   }
   .cards {
     display: grid;
-    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
     margin-top: 22px;
   }
@@ -364,41 +364,13 @@
     transition: transform .3s var(--ease);
   }
 
-  .card-soon {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 12px;
-    min-height: 230px;
-    padding: clamp(22px, 3vw, 32px);
-    background: transparent;
-    border: 1px dashed var(--rule);
-    box-shadow: none;
+  .cover-nce {
+    background:
+      radial-gradient(120% 90% at 18% 0%, rgba(255, 255, 255, .13), transparent 55%),
+      linear-gradient(160deg, #72413a 0%, #4b2926 55%, #321b1a 100%);
   }
-  .soon-mark {
-    display: grid;
-    place-items: center;
-    width: 34px;
-    height: 34px;
-    border: 1px solid var(--rule);
-    border-radius: 50%;
-    color: var(--ink-3);
-  }
-  .soon-mark svg { width: 15px; height: 15px; }
-  .card-soon h3 {
-    font-family: var(--serif-zh);
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: .12em;
-    color: var(--ink-2);
-  }
-  .card-soon p {
-    max-width: 24ch;
-    font-size: 12.5px;
-    line-height: 1.8;
-    color: var(--ink-2);
-  }
+  .cover-nce .cover-title { font-style: normal; }
+  .cover-nce .cover-title em { display: block; }
 
   /* ---------- 页脚 ---------- */
   .footer {
@@ -439,7 +411,6 @@
 
   @media (max-width: 860px) {
     .cards { grid-template-columns: 1fr; }
-    .card-soon { min-height: 0; }
   }
 
   @media (max-width: 560px) {
@@ -483,10 +454,39 @@
     <section class="shelf" aria-labelledby="shelf-title">
       <div class="shelf-head">
         <h2 id="shelf-title">书架</h2>
-        <span class="shelf-count">1 份材料</span>
+        <span class="shelf-count">2 份材料</span>
       </div>
 
       <div class="cards">
+        <a class="card" href="nce/" aria-label="打开课程：新概念英语第一、二册">
+          <div class="cover cover-nce" aria-hidden="true">
+            <span class="cover-series">NEW CONCEPT<br>ENGLISH</span>
+            <div>
+              <div class="cover-title"><em>New</em><span>Concept</span></div>
+              <div class="cover-rule"></div>
+              <span class="cover-zh">新概念英语 · 一 · 二</span>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <p class="card-kicker">New Concept English · Books I–II</p>
+            <h3 class="card-title">New Concept English</h3>
+            <p class="card-zh">新概念英语 第一、二册</p>
+            <p class="card-desc">168 课双语课文，逐句点读；每课配单词表，可听美音与英音。</p>
+            <div class="chips">
+              <span class="chip"><i class="dot"></i>168 课</span>
+              <span class="chip">逐句点读</span>
+              <span class="chip">1,757 个词条</span>
+            </div>
+            <span class="card-go">
+              打开课程
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h13"/><path d="m13 6 6 6-6 6"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
         <a class="card" href="love-money-study/" aria-label="打开课程：爱情与金钱 Love or Money?">
           <div class="cover" aria-hidden="true">
             <span class="cover-series">OXFORD<br>BOOKWORMS</span>
@@ -498,7 +498,7 @@
           </div>
 
           <div class="card-body">
-            <p class="card-kicker">Oxford Bookworms Library · Level 1</p>
+            <p class="card-kicker">Oxford Bookworms · Level 1</p>
             <h3 class="card-title">Love or Money?</h3>
             <p class="card-zh">爱情与金钱</p>
             <p class="card-desc">一个关于爱情与金钱的推理故事。8 个章节，可逐段精读、点词查义、听原声，进度自动续读。</p>
@@ -515,16 +515,6 @@
             </span>
           </div>
         </a>
-
-        <div class="card card-soon">
-          <span class="soon-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-              <path d="M12 5v14M5 12h14"/>
-            </svg>
-          </span>
-          <h3>更多内容 · 筹备中</h3>
-          <p>新的精读与听力材料会陆续放上来。</p>
-        </div>
       </div>
     </section>
   </main>
@@ -536,5 +526,14 @@
   </footer>
 </div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f715080e7c4455d02127ddfe88ae868b";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>新概念英语 · 点读与精读</title>
+<meta name="description" content="新概念英语第一、二册点读与精读：168 课中英对照课文、逐句原声点读、配套单词表与美音/英音发音。">
+<meta name="theme-color" content="#f7f3ea" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131517" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/nce.css">
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="wrap">
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="新概念英语首页">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v16.5H6.5A2.5 2.5 0 0 0 4 22V5.5Z"/>
+          <path d="M4 17.5A2.5 2.5 0 0 1 6.5 15H19"/>
+          <path d="M9 7.5h6"/>
+        </svg>
+      </span>
+      <span class="brand-text"><strong>新概念</strong><em>点读 · 精读</em></span>
+    </a>
+    <nav class="nav" aria-label="站内导航">
+      <a href="index.html" class="is-on" aria-current="page">课程</a>
+      <a href="words.html">单词表</a>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <a href="../">书架</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="kicker">New Concept English · Books I–II</p>
+        <h1 class="hero-title">
+          新概念英语
+          <span class="ht-en">First Things First &amp; Practice and Progress</span>
+        </h1>
+        <p class="lede">从第一册的日常对话，到第二册的短篇故事。课文逐句中英对照，原声可以一句一句地听；读完一课，再把这一课的词记下来。</p>
+        <div class="stats">
+          <div class="stat"><b id="statBooks">2</b><span>册</span></div>
+          <div class="stat"><b id="statLessons">168</b><span>课</span></div>
+          <div class="stat"><b id="statWords">1,757</b><span>词条</span></div>
+        </div>
+      </div>
+
+      <div class="hero-books" aria-hidden="true">
+        <div class="hb hb-1">
+          <span class="hb-kicker">NEW CONCEPT<br>ENGLISH</span>
+          <span class="hb-num">I</span>
+          <span class="hb-rule"></span>
+          <span class="hb-en">First<br>Things<br>First</span>
+          <span class="hb-cn">英语初阶</span>
+        </div>
+        <div class="hb hb-2">
+          <span class="hb-kicker">NEW CONCEPT<br>ENGLISH</span>
+          <span class="hb-num">II</span>
+          <span class="hb-rule"></span>
+          <span class="hb-en">Practice<br>and<br>Progress</span>
+          <span class="hb-cn">实践与进步</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="books" aria-label="选择册数">
+      <div class="book-tabs" id="bookTabs">
+        <div class="book-tab is-on"><span class="bt-no">Ⅰ</span><span class="bt-body"><span class="bt-kicker">First Things First · 英语初阶</span><span class="bt-title">第一册</span><span class="bt-meta">正在打开…</span></span></div>
+        <div class="book-tab"><span class="bt-no">Ⅱ</span><span class="bt-body"><span class="bt-kicker">Practice and Progress · 实践与进步</span><span class="bt-title">第二册</span><span class="bt-meta">正在打开…</span></span></div>
+      </div>
+    </section>
+
+    <a class="continue" id="continueLink" href="#" hidden>
+      <span class="continue-label">上次读到</span>
+      <span class="continue-title" id="continueTitle"></span>
+      <span class="continue-meta" id="continueMeta"></span>
+      <span class="continue-go">继续 →</span>
+    </a>
+
+    <section class="shelf" aria-labelledby="shelfTitle">
+      <div class="shelf-head">
+        <h2 id="shelfTitle">目录</h2>
+        <div class="shelf-tools">
+          <span class="shelf-count" id="lessonCount">正在整理…</span>
+          <label class="search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/>
+            </svg>
+            <input type="search" id="searchInput" placeholder="搜索课文或课号" autocomplete="off" aria-label="搜索课文">
+          </label>
+        </div>
+      </div>
+      <div class="lesson-list" id="lessonList">
+        <p class="loading">正在整理书架…</p>
+      </div>
+      <p class="empty" id="emptyState" hidden>没有找到这一课。换个关键词试试。</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>新概念英语 · 第一、二册</span>
+    <span class="footer-stats" id="busuanzi_container_site_pv" style="display:none">访问 <b id="busuanzi_value_site_pv">—</b> 次<span> · </span><span id="busuanzi_container_site_uv"><b id="busuanzi_value_site_uv">—</b> 位访客</span></span>
+    <span>一句一句，慢慢读。</span>
+  </footer>
+</div>
+
+<script src="assets/common.js"></script>
+<script src="assets/index.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f715080e7c4455d02127ddfe88ae868b";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>

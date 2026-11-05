@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>课文 · 新概念英语</title>
+<meta name="description" content="新概念英语课文点读：中英对照、逐句原声、配套单词发音。">
+<meta name="theme-color" content="#f7f3ea" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131517" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/nce.css">
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="wrap">
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="新概念英语首页">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v16.5H6.5A2.5 2.5 0 0 0 4 22V5.5Z"/>
+          <path d="M4 17.5A2.5 2.5 0 0 1 6.5 15H19"/>
+          <path d="M9 7.5h6"/>
+        </svg>
+      </span>
+      <span class="brand-text"><strong>新概念</strong><em>点读 · 精读</em></span>
+    </a>
+    <nav class="nav" aria-label="站内导航">
+      <a href="index.html">课程</a>
+      <a href="words.html">单词表</a>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <a href="../">书架</a>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <span class="pager-mini">
+        <a id="prevTop" href="#" aria-disabled="true">← 上一课</a>
+        <a id="nextTop" href="#" aria-disabled="true">下一课 →</a>
+      </span>
+    </nav>
+  </header>
+
+  <main class="lesson-main">
+    <header class="lesson-head">
+      <p class="kicker"><span id="lessonLabel">Lesson</span><span class="sep" aria-hidden="true"></span><span id="lessonBook">新概念英语</span></p>
+      <h1 class="lesson-title" id="lessonTitle">正在打开…</h1>
+      <p class="lesson-zh" id="lessonZh"></p>
+      <div class="lesson-meta">
+        <span id="metaLines"></span>
+        <span class="meta-dot" aria-hidden="true"></span>
+        <a href="#wordPanel" id="metaWords"></a>
+        <span class="meta-dot" aria-hidden="true"></span>
+        <span id="metaDuration">原声点读</span>
+      </div>
+    </header>
+
+    <div class="reader">
+      <article class="reading">
+        <div class="player" id="player">
+          <audio id="audio" preload="metadata"></audio>
+          <div class="player-main">
+            <button class="play-btn" id="playBtn" aria-label="播放">
+              <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.4v13.2L19 12 8 5.4Z" fill="currentColor"/></svg>
+              <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor"/></svg>
+            </button>
+            <div class="track">
+              <div class="track-top"><span id="curTime">0:00</span><span class="dur" id="durTime">--:--</span></div>
+              <input class="seek" type="range" id="seek" min="0" max="100" value="0" step="0.1" aria-label="播放进度">
+            </div>
+          </div>
+          <div class="player-tools">
+            <div class="tool-group">
+              <button class="tool-btn" id="prevLine" aria-label="上一句" title="上一句（←）">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6v12L9 12l9-6Z"/><path d="M6 5v14"/></svg>
+              </button>
+              <button class="tool-btn" id="loopBtn" aria-pressed="false" aria-label="循环本句" title="循环本句（L）">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11V9a4 4 0 0 1 4-4h9"/><path d="m14 2.5 3 2.5-3 2.5"/><path d="M20 13v2a4 4 0 0 1-4 4H7"/><path d="m10 21.5-3-2.5 3-2.5"/></svg>
+              </button>
+              <button class="tool-btn" id="nextLine" aria-label="下一句" title="下一句（→）">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6v12l9-6-9-6Z"/><path d="M18 5v14"/></svg>
+              </button>
+              <button class="tool-btn" id="followBtn" aria-pressed="true" aria-label="自动跟随" title="自动跟随（F）">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg>
+              </button>
+            </div>
+            <div class="tool-group">
+              <button class="tool-btn speed" id="speedBtn" aria-label="播放速度" title="播放速度">1.0×</button>
+              <div class="mode-switch" role="group" aria-label="显示模式">
+                <button type="button" data-mode="en">EN</button>
+                <button type="button" data-mode="both" class="is-on">中英</button>
+                <button type="button" data-mode="cn">中</button>
+              </div>
+            </div>
+          </div>
+          <button class="resume-btn" id="resumeBtn" hidden></button>
+        </div>
+
+        <div class="transcript" id="transcript" aria-label="课文">
+          <p class="loading">正在打开课文…</p>
+        </div>
+
+        <nav class="lesson-pager" id="lessonPager" aria-label="相邻课文"></nav>
+      </article>
+
+      <aside class="word-panel" id="wordPanel" aria-labelledby="wordHeading">
+        <div class="word-head">
+          <h2 id="wordHeading">本课单词</h2>
+          <span class="count" id="wordCount"></span>
+          <div class="accent-switch" id="accentSwitch" role="group" aria-label="发音偏好">
+            <button type="button" data-accent="us" class="is-on">美音</button>
+            <button type="button" data-accent="uk">英音</button>
+          </div>
+        </div>
+        <ol class="word-list" id="wordList"></ol>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span>新概念英语 · 逐句点读</span>
+    <span class="footer-stats" id="busuanzi_container_site_pv" style="display:none">访问 <b id="busuanzi_value_site_pv">—</b> 次<span> · </span><span id="busuanzi_container_site_uv"><b id="busuanzi_value_site_uv">—</b> 位访客</span></span>
+    <span>空格播放 · ← → 换句</span>
+  </footer>
+</div>
+
+<script src="assets/common.js"></script>
+<script src="assets/lesson.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f715080e7c4455d02127ddfe88ae868b";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>
