@@ -750,7 +750,7 @@ svg { display: block; }
 .only-mobile { display: none; }
 
 .art-head { padding-bottom: 34px; border-bottom: 1px solid var(--ink); }
-.art-head h1 {
+.art-head h1, .art-head h2 {
   margin-top: 12px;
   font-family: var(--serif-en);
   font-size: clamp(34px, 5vw, 46px);
@@ -837,7 +837,7 @@ svg { display: block; }
   padding: clamp(40px, 6vw, 72px) clamp(20px, 5vw, 48px) 140px;
 }
 .page-head { max-width: 640px; }
-.page-head h1 {
+.page-head h1, .page-head h2 {
   margin-top: 14px;
   font-family: var(--serif-zh);
   font-size: clamp(32px, 4.4vw, 44px);
@@ -1570,10 +1570,12 @@ svg { display: block; }
 }
 
 @media (max-width: 720px) {
-  .topbar { gap: 10px; height: 60px; padding: 0 14px; }
+  .topbar { gap: 8px; height: 60px; padding: 0 14px; }
   .brand-text em { display: none; }
-  .nav a { padding: 6px 9px; font-size: 13px; }
+  .nav a { padding: 6px 6px; font-size: 13px; white-space: nowrap; }
   .nav { margin-left: 0; }
+  .top-actions { gap: 6px; }
+  .icon-btn { width: 30px; height: 30px; }
   #app { min-height: calc(100vh - 60px); }
 
   .hero { padding: 26px 18px 30px; }
@@ -1623,9 +1625,13 @@ svg { display: block; }
 }
 
 @media (max-width: 420px) {
-  .brand-text strong { font-size: 15px; }
+  .brand-text strong { font-size: 14px; }
   .pl-chip { padding: 0 6px; font-size: 10.5px; }
   .pl-right { gap: 0; }
+}
+
+@media (max-width: 340px) {
+  .brand-text { display: none; }
 }
 
 /* ---------- 动效偏好 ---------- */
