@@ -209,12 +209,6 @@
   .word .zh { display: block; font-size: 11px; font-weight: 700; color: var(--muted); }
   .word.playing { background: var(--mint); outline: 2px solid rgba(47,158,110,.5); }
 
-  footer {
-    max-width: 1080px; margin: 0 auto; padding: 0 20px 46px;
-    color: #8fa99e; font-size: 12px; line-height: 1.8; text-align: center;
-  }
-  footer a { color: #6fa08a; }
-
   @media (max-width: 560px) {
     .grid { grid-template-columns: repeat(auto-fill, minmax(78px, 1fr)); gap: 10px; }
     .card .sym { font-size: 23px; }
@@ -243,10 +237,6 @@
 <div class="sub-tabs" id="subTabs"></div>
 
 <div class="board" id="board"></div>
-
-<footer>
-  音标分类与发音参考 <a href="https://www.xdf.cn/zhuanti/bd-phonetic-alphabet-card/index.html" target="_blank" rel="noopener">新东方国际音标表</a>；音标音频来自其公开页面。例词朗读由浏览器语音合成提供。
-</footer>
 
 <div class="overlay" id="overlay">
   <div class="sheet" id="sheet">
