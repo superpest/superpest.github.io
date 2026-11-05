@@ -372,6 +372,14 @@
   .cover-nce .cover-title { font-style: normal; }
   .cover-nce .cover-title em { display: block; }
 
+  .cover-abc {
+    background:
+      radial-gradient(120% 90% at 18% 0%, rgba(255, 255, 255, .16), transparent 55%),
+      linear-gradient(160deg, #e07a2e 0%, #c2571d 55%, #8f3c12 100%);
+  }
+  .cover-abc .cover-title { font-style: normal; letter-spacing: .04em; }
+  .cover-abc .cover-title em { display: block; }
+
   /* ---------- 页脚 ---------- */
   .footer {
     display: flex;
@@ -454,10 +462,39 @@
     <section class="shelf" aria-labelledby="shelf-title">
       <div class="shelf-head">
         <h2 id="shelf-title">书架</h2>
-        <span class="shelf-count">2 份材料</span>
+        <span class="shelf-count">3 份材料</span>
       </div>
 
       <div class="cards">
+        <a class="card" href="alphabet/" aria-label="打开课程：ABC 字母发音乐园">
+          <div class="cover cover-abc" aria-hidden="true">
+            <span class="cover-series">PHONICS<br>A TO Z</span>
+            <div>
+              <div class="cover-title"><em>Alphabet</em><span>Sounds</span></div>
+              <div class="cover-rule"></div>
+              <span class="cover-zh">字母发音乐园</span>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <p class="card-kicker">Phonics · Letter Sounds A–Z</p>
+            <h3 class="card-title">Alphabet Sounds</h3>
+            <p class="card-zh">ABC 字母发音乐园</p>
+            <p class="card-desc">26 个字母的音标、关键词与拼读词卡，点一点就发音；CVC 拼读模式帮孩子从字母过渡到单词。</p>
+            <div class="chips">
+              <span class="chip"><i class="dot"></i>26 个字母</span>
+              <span class="chip">点词发音</span>
+              <span class="chip">CVC 拼读</span>
+            </div>
+            <span class="card-go">
+              打开课程
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h13"/><path d="m13 6 6 6-6 6"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
         <a class="card" href="nce/" aria-label="打开课程：新概念英语第一、二册">
           <div class="cover cover-nce" aria-hidden="true">
             <span class="cover-series">NEW CONCEPT<br>ENGLISH</span>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABC 字母发音乐园 · 26 个字母自然拼读</title>
+<style>
+  :root {
+    --bg: #fff8ef;
+    --ink: #3d2c29;
+    --card: #ffffff;
+    --radius: 22px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    background-image: radial-gradient(#ffe3c2 1.2px, transparent 1.2px);
+    background-size: 26px 26px;
+  }
+
+  header {
+    max-width: 1080px; margin: 0 auto; padding: 36px 20px 8px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 16px;
+  }
+  .logo {
+    font-size: clamp(26px, 4vw, 40px); font-weight: 900; letter-spacing: 1px;
+  }
+  .logo span { color: #ff7a3d; }
+  .sub { width: 100%; color: #8a7364; font-size: 15px; margin-top: -6px; }
+
+  .toolbar {
+    max-width: 1080px; margin: 14px auto 0; padding: 0 20px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+  }
+  .progress-wrap { flex: 1 1 220px; display: flex; align-items: center; gap: 10px; }
+  .progress-bar {
+    flex: 1; height: 14px; background: #ffe9d6; border-radius: 99px; overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.08);
+  }
+  .progress-fill {
+    height: 100%; width: 0%; border-radius: 99px;
+    background: linear-gradient(90deg, #ffb347, #ff7a3d);
+    transition: width .5s cubic-bezier(.2,.8,.2,1);
+  }
+  .progress-text { font-weight: 800; font-size: 14px; color: #b06a2f; white-space: nowrap; }
+
+  .seg {
+    display: inline-flex; background: #fff; border-radius: 99px; padding: 4px;
+    box-shadow: 0 2px 8px rgba(120,72,20,.10);
+  }
+  .seg button {
+    border: 0; background: transparent; padding: 8px 16px; border-radius: 99px;
+    font-size: 14px; font-weight: 700; color: #8a7364; cursor: pointer; font-family: inherit;
+  }
+  .seg button.on { background: #ff7a3d; color: #fff; box-shadow: 0 2px 6px rgba(255,122,61,.4); }
+
+  .grid {
+    max-width: 1080px; margin: 22px auto 80px; padding: 0 20px;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px;
+  }
+  .phase-label {
+    grid-column: 1 / -1; font-weight: 900; font-size: 15px; color: #b06a2f;
+    padding: 10px 4px 0; display: none;
+  }
+  .grid.ordered .phase-label { display: block; }
+
+  .tile {
+    --hue: 0;
+    position: relative; border: 0; cursor: pointer; text-align: center;
+    background: var(--card); border-radius: var(--radius); padding: 18px 10px 14px;
+    box-shadow: 0 4px 0 hsl(var(--hue) 80% 72% / .55), 0 10px 24px rgba(120,72,20,.10);
+    transition: transform .18s cubic-bezier(.2,.8,.2,1), box-shadow .18s;
+    font-family: inherit;
+  }
+  .tile:hover { transform: translateY(-5px) rotate(-1deg); }
+  .tile:active { transform: translateY(1px) scale(.98); }
+  .tile .pair {
+    display: block;
+    font-size: 44px; font-weight: 900; line-height: 1;
+    color: hsl(var(--hue) 70% 42%);
+  }
+  .tile .name-ipa {
+    display: block; width: fit-content; margin: 7px auto 0; padding: 3px 11px; border-radius: 99px;
+    background: hsl(var(--hue) 85% 94%); color: hsl(var(--hue) 60% 40%);
+    font-size: 14px; font-weight: 900; letter-spacing: .5px; line-height: 1.4;
+    font-family: "Doulos SIL", "Charis SIL", "Gentium Plus", "Lucida Sans Unicode", "Arial Unicode MS", serif;
+  }
+  .tile .emo { font-size: 34px; margin-top: 10px; display: block; }
+  .tile .kw { font-size: 14px; font-weight: 700; color: #8a7364; margin-top: 4px; display: block; }
+  .tile .done {
+    position: absolute; top: 8px; right: 8px; width: 26px; height: 26px;
+    border-radius: 50%; background: #4caf6d; color: #fff; font-size: 15px; font-weight: 900;
+    display: none; align-items: center; justify-content: center;
+    box-shadow: 0 2px 6px rgba(76,175,109,.5);
+  }
+  .tile.learned .done { display: flex; }
+  .tile.learned { background: #f2fbf4; }
+
+  /* ---------- detail overlay ---------- */
+  .overlay {
+    position: fixed; inset: 0; background: rgba(61,44,41,.45);
+    display: none; align-items: flex-start; justify-content: center;
+    overflow-y: auto; padding: 24px 14px 60px; z-index: 50;
+  }
+  .overlay.open { display: flex; animation: fade .2s ease; }
+  @keyframes fade { from { opacity: 0 } to { opacity: 1 } }
+  .sheet {
+    --hue: 0;
+    background: var(--bg); width: 100%; max-width: 760px; border-radius: 28px;
+    padding: 26px 24px 40px; position: relative;
+    box-shadow: 0 24px 60px rgba(0,0,0,.25);
+    animation: pop .25s cubic-bezier(.2,.9,.3,1.2);
+  }
+  @keyframes pop { from { transform: translateY(24px) scale(.97); opacity: 0 } }
+
+  .sheet .close {
+    position: absolute; top: 14px; right: 14px; width: 40px; height: 40px;
+    border-radius: 50%; border: 0; background: #fff; font-size: 18px; cursor: pointer;
+    box-shadow: 0 2px 8px rgba(120,72,20,.15); color: #8a7364;
+  }
+  .navbtn {
+    position: absolute; top: 120px; width: 44px; height: 44px; border-radius: 50%;
+    border: 0; background: #fff; font-size: 20px; cursor: pointer;
+    box-shadow: 0 3px 10px rgba(120,72,20,.18); color: hsl(var(--hue) 70% 42%);
+  }
+  .navbtn.prev { left: 10px; }
+  .navbtn.next { right: 10px; }
+
+  .hero { text-align: center; padding: 8px 40px 0; }
+  .hero .big {
+    font-size: clamp(84px, 16vw, 130px); font-weight: 900; line-height: 1;
+    color: hsl(var(--hue) 70% 45%);
+    text-shadow: 0 6px 0 hsl(var(--hue) 80% 80%);
+  }
+  .hero .ipa-row { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .hero .ipa {
+    display: inline-block; padding: 8px 20px; border-radius: 99px;
+    background: hsl(var(--hue) 85% 92%); color: hsl(var(--hue) 65% 38%);
+    font-size: 20px; font-weight: 900; letter-spacing: 1px;
+    font-family: "Doulos SIL", "Charis SIL", "Gentium Plus", "Lucida Sans Unicode", "Arial Unicode MS", serif;
+  }
+  .hero .ipa b {
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-size: 12px; font-weight: 700; letter-spacing: 0; opacity: .7; margin-right: 8px;
+  }
+  .hero .ipa.sound { background: #fff; box-shadow: inset 0 0 0 2px hsl(var(--hue) 85% 85%); }
+  .hero .tip {
+    margin: 12px auto 0; max-width: 520px; font-size: 14px; color: #8a7364; line-height: 1.6;
+  }
+  .keyword-card {
+    margin: 20px auto 0; max-width: 420px; background: #fff; border-radius: 20px;
+    padding: 18px; display: flex; align-items: center; gap: 16px;
+    box-shadow: 0 4px 0 hsl(var(--hue) 80% 72% / .5), 0 10px 24px rgba(120,72,20,.10);
+  }
+  .keyword-card .emo { font-size: 56px; }
+  .keyword-card .kw { font-size: 30px; font-weight: 900; color: var(--ink); }
+  .keyword-card .is-for { font-size: 13px; color: #b06a2f; font-weight: 700; }
+
+  .btn {
+    border: 0; cursor: pointer; font-family: inherit; font-weight: 800;
+    border-radius: 99px; padding: 10px 18px; font-size: 15px;
+    transition: transform .12s;
+  }
+  .btn:active { transform: scale(.94); }
+  .btn-hear { background: hsl(var(--hue) 80% 50%); color: #fff; box-shadow: 0 3px 0 hsl(var(--hue) 80% 38%); }
+
+  .sec { margin-top: 30px; }
+  .sec h3 {
+    font-size: 17px; font-weight: 900; color: hsl(var(--hue) 60% 40%);
+    display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+  }
+  .sec h3::after { content: ""; flex: 1; height: 3px; border-radius: 3px; background: hsl(var(--hue) 85% 88%); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip {
+    border: 0; cursor: pointer; font-family: inherit;
+    background: #fff; border-radius: 16px; padding: 10px 16px;
+    font-size: 19px; font-weight: 800; color: var(--ink);
+    box-shadow: 0 3px 0 #f0e2d2, 0 6px 14px rgba(120,72,20,.08);
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: transform .12s;
+  }
+  .chip:hover { transform: translateY(-2px); }
+  .chip:active { transform: scale(.95); }
+  .chip .e { font-size: 22px; }
+  .chip.playing { background: hsl(var(--hue) 85% 90%); outline: 3px solid hsl(var(--hue) 80% 60%); }
+
+  .sent {
+    width: 100%; text-align: left; border: 0; cursor: pointer; font-family: inherit;
+    background: #fff; border-radius: 16px; padding: 14px 18px; margin-bottom: 10px;
+    font-size: 19px; font-weight: 700; color: var(--ink);
+    box-shadow: 0 3px 0 #f0e2d2, 0 6px 14px rgba(120,72,20,.08);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .sent .spk { color: hsl(var(--hue) 70% 50%); font-size: 16px; }
+
+  .actions { margin-top: 34px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-done { background: #4caf6d; color: #fff; font-size: 17px; padding: 14px 30px; box-shadow: 0 4px 0 #3d8b57; }
+  .btn-done.is-done { background: #9e9e9e; box-shadow: 0 4px 0 #7e7e7e; }
+
+  .blend-toggle { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #8a7364; cursor: pointer; user-select: none; }
+  .blend-toggle input { accent-color: #ff7a3d; width: 18px; height: 18px; cursor: pointer; }
+
+  footer { text-align: center; color: #c3ab97; font-size: 13px; padding: 0 20px 40px; }
+
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 12px; }
+    .tile .pair { font-size: 34px; }
+    .navbtn { top: auto; bottom: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">ABC <span>字母发音乐园</span> 🔤</div>
+  <div class="sub">26 个字母 · 音标 · 关键词 · 拼读单词 · 例句 —— 点击任意字母或单词就能听发音</div>
+</header>
+
+<div class="toolbar">
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="fill"></div></div>
+    <div class="progress-text" id="ptext">0 / 26</div>
+  </div>
+  <div class="seg" id="seg">
+    <button data-mode="az" class="on">A – Z 顺序</button>
+    <button data-mode="order">推荐学习顺序</button>
+  </div>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<footer>字母内容参考 openandgophonics.com · 发音由浏览器语音合成提供 · 学习进度保存在本机</footer>
+
+<div class="overlay" id="overlay">
+  <div class="sheet" id="sheet">
+    <button class="close" id="closeBtn">✕</button>
+    <button class="navbtn prev" id="prevBtn">‹</button>
+    <button class="navbtn next" id="nextBtn">›</button>
+
+    <div class="hero">
+      <div class="big" id="dBig">Aa</div>
+      <div class="ipa-row">
+        <span class="ipa" id="dNameIpa"><b>字母名</b>/eɪ/</span>
+        <span class="ipa sound" id="dSoundIpa"><b>字母音</b>/æ/</span>
+      </div>
+      <div class="tip" id="dTip"></div>
+      <div class="keyword-card">
+        <div class="emo" id="dEmo">🍎</div>
+        <div>
+          <div class="is-for" id="dIsFor">A is for</div>
+          <div class="kw" id="dKw">apple</div>
+        </div>
+        <div style="flex:1"></div>
+        <button class="btn btn-hear" id="dHear">🔊 听一听</button>
+      </div>
+    </div>
+
+    <div class="sec" id="secWords">
+      <h3>📖 字母单词 <span style="font-weight:400;font-size:12px;color:#b06a2f">点一点听发音</span></h3>
+      <div class="chips" id="dWords"></div>
+    </div>
+
+    <div class="sec" id="secCvc">
+      <h3>🧩 CVC 拼读词
+        <span style="flex:0"></span>
+        <label class="blend-toggle"><input type="checkbox" id="blendMode"> 拼读模式：c…a…t → cat</label>
+      </h3>
+      <div class="chips" id="dCvc"></div>
+    </div>
+
+    <div class="sec" id="secLonger">
+      <h3>🚀 进阶单词</h3>
+      <div class="chips" id="dLonger"></div>
+    </div>
+
+    <div class="sec" id="secSent">
+      <h3>💬 读句子</h3>
+      <div id="dSents"></div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-done" id="doneBtn">✅ 我学会啦</button>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+(function () {
+  'use strict';
+  var LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  // 推荐学习顺序（高频字母优先，来自原站的教学顺序）
+  var TEACH_ORDER = ['S','A','T','I','P','N','M','D','G','O','C','K','E','U','R','H','B','F','L','J','V','W','X','Y','Z','Q'];
+  var PHASES = [
+    { name: '第一阶段 · 最高频字母', letters: ['S','A','T','I','P','N'] },
+    { name: '第二阶段 · 常用辅音 + 元音', letters: ['M','D','G','O','C','K','E','U','R','H','B','F'] },
+    { name: '第三阶段 · 剩余字母', letters: ['L','J','V','W','X','Y','Z','Q'] }
+  ];
+  var CN_NAMES = { A:'ei', B:'bi', C:'si', D:'di', E:'yi', F:'ef', G:'ji', H:'eichi', I:'ai', J:'jie', K:'kei', L:'el', M:'em', N:'en', O:'ou', P:'pi', Q:'kiu', R:'ar', S:'es', T:'ti', U:'you', V:'vi', W:'double-u', X:'eks', Y:'wai', Z:'zi' };
+  // 字母名称的音标（美式，与页面朗读语音一致）
+  var LETTER_NAME_IPA = {
+    A:'/eɪ/', B:'/biː/', C:'/siː/', D:'/diː/', E:'/iː/', F:'/ef/', G:'/dʒiː/',
+    H:'/eɪtʃ/', I:'/aɪ/', J:'/dʒeɪ/', K:'/keɪ/', L:'/el/', M:'/em/', N:'/en/',
+    O:'/oʊ/', P:'/piː/', Q:'/kjuː/', R:'/ɑːr/', S:'/es/', T:'/tiː/', U:'/juː/',
+    V:'/viː/', W:'/ˈdʌbəljuː/', X:'/eks/', Y:'/waɪ/', Z:'/ziː/'
+  };
+
+  var grid = document.getElementById('grid');
+  var overlay = document.getElementById('overlay');
+  var sheet = document.getElementById('sheet');
+  var mode = 'az';
+  var current = null;
+
+  var progress = {};
+  try { progress = JSON.parse(localStorage.getItem('abc-phonics-progress') || '{}'); } catch (e) { progress = {}; }
+  function saveProgress() { localStorage.setItem('abc-phonics-progress', JSON.stringify(progress)); }
+
+  function hueOf(L) { return (LETTERS.indexOf(L) * 137) % 360; }
+
+  /* ---------- speech ---------- */
+  var voice = null;
+  function pickVoice() {
+    var vs = speechSynthesis.getVoices();
+    voice = vs.find(function (v) { return /en[-_]US/i.test(v.lang) && /google/i.test(v.name); })
+         || vs.find(function (v) { return /en[-_]US/i.test(v.lang); })
+         || vs.find(function (v) { return /^en/i.test(v.lang); })
+         || null;
+  }
+  if ('speechSynthesis' in window) {
+    pickVoice();
+    speechSynthesis.onvoiceschanged = pickVoice;
+  }
+  function speak(text, rate, onend) {
+    if (!('speechSynthesis' in window)) { if (onend) onend(); return; }
+    speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    if (voice) u.voice = voice;
+    u.lang = 'en-US';
+    u.rate = rate || 0.9;
+    u.pitch = 1.05;
+    if (onend) u.onend = onend;
+    speechSynthesis.speak(u);
+  }
+  function speakSeq(parts, onend) {
+    // parts: [{text, rate}] sequential utterances
+    if (!('speechSynthesis' in window)) { if (onend) onend(); return; }
+    speechSynthesis.cancel();
+    var i = 0;
+    function next() {
+      if (i >= parts.length) { if (onend) onend(); return; }
+      var p = parts[i++];
+      var u = new SpeechSynthesisUtterance(p.text);
+      if (voice) u.voice = voice;
+      u.lang = 'en-US';
+      u.rate = p.rate || 0.9;
+      u.pitch = 1.05;
+      u.onend = next;
+      speechSynthesis.speak(u);
+    }
+    next();
+  }
+  function flashChip(btn, ms) {
+    btn.classList.add('playing');
+    setTimeout(function () { btn.classList.remove('playing'); }, ms || 900);
+  }
+  function blendWord(word) {
+    var letters = word.toLowerCase().replace(/[^a-z]/g, '').split('');
+    var parts = letters.map(function (c) { return { text: c, rate: 0.55 }; });
+    parts.push({ text: word, rate: 0.85 });
+    parts.push({ text: word + '!', rate: 1 });
+    return parts;
+  }
+
+  /* ---------- grid ---------- */
+  function makeTile(L) {
+    var d = PHONICS_DATA[L];
+    var b = document.createElement('button');
+    b.className = 'tile' + (progress[L] ? ' learned' : '');
+    b.style.setProperty('--hue', hueOf(L));
+    b.innerHTML =
+      '<span class="done">✓</span>' +
+      '<span class="pair">' + L + '<span style="font-size:.62em">' + L.toLowerCase() + '</span></span>' +
+      '<span class="name-ipa">' + (LETTER_NAME_IPA[L] || '') + '</span>' +
+      '<span class="emo">' + (d.emoji || '🔤') + '</span>' +
+      '<span class="kw">' + d.keyword + '</span>';
+    b.onclick = function () { openLetter(L); };
+    return b;
+  }
+
+  function renderGrid() {
+    grid.innerHTML = '';
+    grid.classList.toggle('ordered', mode === 'order');
+    if (mode === 'az') {
+      LETTERS.forEach(function (L) { grid.appendChild(makeTile(L)); });
+    } else {
+      PHASES.forEach(function (ph) {
+        var lab = document.createElement('div');
+        lab.className = 'phase-label';
+        lab.textContent = ph.name;
+        grid.appendChild(lab);
+        ph.letters.forEach(function (L) { grid.appendChild(makeTile(L)); });
+      });
+    }
+    var done = LETTERS.filter(function (L) { return progress[L]; }).length;
+    document.getElementById('fill').style.width = (done / 26 * 100) + '%';
+    document.getElementById('ptext').textContent = done + ' / 26';
+  }
+
+  document.getElementById('seg').addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (!b) return;
+    mode = b.dataset.mode;
+    this.querySelectorAll('button').forEach(function (x) { x.classList.toggle('on', x === b); });
+    renderGrid();
+  });
+
+  /* ---------- detail ---------- */
+  function chip(word, emoji, isCvc) {
+    var b = document.createElement('button');
+    b.className = 'chip';
+    b.innerHTML = (emoji ? '<span class="e">' + emoji + '</span>' : '') + '<span>' + word + '</span>';
+    b.onclick = function () {
+      var blend = isCvc && document.getElementById('blendMode').checked;
+      flashChip(b, blend ? word.length * 700 + 1200 : 900);
+      if (blend) speakSeq(blendWord(word));
+      else speak(word, 0.82);
+    };
+    return b;
+  }
+
+  function openLetter(L) {
+    current = L;
+    var d = PHONICS_DATA[L];
+    sheet.style.setProperty('--hue', hueOf(L));
+    document.getElementById('dBig').innerHTML = L + '<span style="font-size:.62em">' + L.toLowerCase() + '</span>';
+    document.getElementById('dNameIpa').innerHTML = '<b>字母名</b>' + (LETTER_NAME_IPA[L] || '');
+    document.getElementById('dSoundIpa').innerHTML = '<b>字母音</b>' + (d.ipa || d.sound);
+    document.getElementById('dTip').textContent = d.tip ? '👄 ' + d.tip : '';
+    document.getElementById('dEmo').textContent = d.emoji || '🔤';
+    document.getElementById('dIsFor').textContent = L + ' is for';
+    document.getElementById('dKw').textContent = d.keyword;
+
+    var w = document.getElementById('dWords'); w.innerHTML = '';
+    d.words.forEach(function (x) { w.appendChild(chip(x.word, x.emoji, false)); });
+    document.getElementById('secWords').style.display = d.words.length ? '' : 'none';
+
+    var c = document.getElementById('dCvc'); c.innerHTML = '';
+    d.cvc.forEach(function (x) { c.appendChild(chip(x.word, x.emoji, true)); });
+    document.getElementById('secCvc').style.display = d.cvc.length ? '' : 'none';
+
+    var g = document.getElementById('dLonger'); g.innerHTML = '';
+    d.longer.forEach(function (x) { g.appendChild(chip(x.word, x.emoji, false)); });
+    document.getElementById('secLonger').style.display = d.longer.length ? '' : 'none';
+
+    var s = document.getElementById('dSents'); s.innerHTML = '';
+    d.sentences.forEach(function (text) {
+      var b = document.createElement('button');
+      b.className = 'sent';
+      b.innerHTML = '<span class="spk">🔊</span><span>' + text + '</span>';
+      b.onclick = function () { speak(text, 0.88); };
+      s.appendChild(b);
+    });
+    document.getElementById('secSent').style.display = d.sentences.length ? '' : 'none';
+
+    var doneBtn = document.getElementById('doneBtn');
+    doneBtn.textContent = progress[L] ? '✓ 已学会（点击取消）' : '✅ 我学会啦';
+    doneBtn.classList.toggle('is-done', !!progress[L]);
+
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    overlay.scrollTop = 0;
+  }
+
+  function closeLetter() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    if ('speechSynthesis' in window) speechSynthesis.cancel();
+    renderGrid();
+  }
+
+  function step(dir) {
+    var seq = mode === 'az' ? LETTERS : TEACH_ORDER;
+    var i = seq.indexOf(current);
+    openLetter(seq[(i + dir + seq.length) % seq.length]);
+  }
+
+  document.getElementById('dHear').onclick = function () {
+    var d = PHONICS_DATA[current];
+    speakSeq([
+      { text: current + '.', rate: 0.8 },
+      { text: d.keyword + '.', rate: 0.7 },
+      { text: current + ' is for ' + d.keyword + '.', rate: 0.9 }
+    ]);
+  };
+  document.getElementById('doneBtn').onclick = function () {
+    progress[current] = !progress[current];
+    if (!progress[current]) delete progress[current];
+    saveProgress();
+    if (progress[current]) {
+      speak('Great job!', 1);
+      setTimeout(function () { step(1); }, 700);
+    } else {
+      openLetter(current);
+    }
+  };
+  document.getElementById('closeBtn').onclick = closeLetter;
+  document.getElementById('prevBtn').onclick = function () { step(-1); };
+  document.getElementById('nextBtn').onclick = function () { step(1); };
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) closeLetter(); });
+  document.addEventListener('keydown', function (e) {
+    if (!overlay.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLetter();
+    if (e.key === 'ArrowLeft') step(-1);
+    if (e.key === 'ArrowRight') step(1);
+  });
+
+  renderGrid();
+})();
+</script>
+</body>
+</html>
